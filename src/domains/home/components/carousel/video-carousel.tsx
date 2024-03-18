@@ -3,7 +3,7 @@ import { hightlightsSlides } from "constant";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { SyntheticEvent, useEffect, useRef, useState } from "react";
-import { pauseImg, playImg, replayImg } from "utils";
+import { pauseImg, playImg, replayImg } from "constant/Images";
 import { TProsessState, TVideoState } from "./type";
 gsap.registerPlugin(ScrollTrigger);
 

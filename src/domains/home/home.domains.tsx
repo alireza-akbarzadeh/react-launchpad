@@ -1,13 +1,13 @@
 import { Hero, Highlights, Navbar } from "./components";
 import { Model } from "./components/Model";
 
-export const Home = () => {
+export const HomeDomains = () => {
   return (
-    <main className="bg-black">
+    <>
       <Navbar />
       <Hero />
       <Highlights />
       <Model />
-    </main>
+    </>
   );
 };

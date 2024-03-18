@@ -1,1 +1,1 @@
-export { Home } from "./home.view";
+export { HomeDomains } from "./home.domains";

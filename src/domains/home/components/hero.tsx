@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { heroVideo, smallHeroVideo } from "utils";
+import { heroVideo, smallHeroVideo } from "constant/Images";
 import { useWindowSize } from "hooks";
 
 export const Hero = () => {

@@ -1,2 +1,2 @@
-export { RootLayout } from "./root-layout";
+export { RootLayout } from "./layout";
 export { ErrorContainer } from "./error";

@@ -1,5 +1,5 @@
-import { Hero, Highlights, Navbar } from "./components";
-import { Model } from "./components/Model";
+import { Hero, Highlights, Model } from "./container";
+import { Navbar } from "./components";
 
 export const HomeDomains = () => {
   return (

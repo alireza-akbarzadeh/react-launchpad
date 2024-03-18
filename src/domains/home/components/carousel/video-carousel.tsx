@@ -2,24 +2,10 @@ import { useGSAP } from "@gsap/react";
 import { hightlightsSlides } from "constant";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
 import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { pauseImg, playImg, replayImg } from "utils";
-
-type TVideoState = {
-  isEnd: boolean;
-  startPlay: boolean;
-  videoId: number;
-  isLast: boolean;
-  isPalying: boolean;
-};
-
-type TProsessState =
-  | "video-end"
-  | "play"
-  | "pause"
-  | "video-last"
-  | "video-reset";
+import { TProsessState, TVideoState } from "./type";
+gsap.registerPlugin(ScrollTrigger);
 
 export const VideoCarousel = () => {
   const videoRef = useRef<HTMLVideoElement[]>([]);
@@ -147,6 +133,9 @@ export const VideoCarousel = () => {
       case "play":
         setVideo((prev) => ({ ...prev, isPalying: !prev.isPalying }));
         break;
+      case "pause":
+        setVideo((prev) => ({ ...prev, isPalying: !prev.isPalying }));
+        break;
       default:
         return video;
     }
@@ -164,6 +153,7 @@ export const VideoCarousel = () => {
                   playsInline={true}
                   muted
                   preload="auto"
+                  className={`${slide.id === 2 && "translate-x-44"} pointer-events-none`}
                   onPlay={() => {
                     setVideo((prev) => ({ ...prev, isPalying: true }));
                   }}

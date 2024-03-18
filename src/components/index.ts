@@ -1,3 +1,1 @@
-export { Hero } from "./hero";
-export { Highlights } from "./highlights";
-export { Navbar } from "./navbar";
+export { Button } from "./ui/button";

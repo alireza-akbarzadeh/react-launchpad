@@ -1,6 +1,5 @@
-import React from "react";
-import { appleImg, bagImg, searchImg } from "../utils";
-import { navLists } from "../constant";
+import { navLists } from "constant";
+import { appleImg, bagImg, searchImg } from "constant/Images";
 
 export const Navbar = () => {
   return (

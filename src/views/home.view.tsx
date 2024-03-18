@@ -1,5 +1,7 @@
+import { HomeDomains } from "domains";
+
 function HomeView() {
-  return <div>HomeView</div>;
+  return <HomeDomains />;
 }
 
 export default HomeView;

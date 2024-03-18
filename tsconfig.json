@@ -2,14 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      //add paths line
-      "@components/*": ["src/components"],
-      "@utils/*": ["src/utils/*"],
-      "@constant/*": ["src/constant/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@views/*": ["src/views/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@routes/*": ["src/routes/*"]
+      "@/*": ["src/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -31,6 +24,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

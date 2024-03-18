@@ -1,6 +1,6 @@
 import debounce from "lodash.debounce";
 import { useEffect, useMemo, useRef } from "react";
-import { useUnmount } from "./useUnmount";
+import { useUnmount } from "hooks";
 
 type DebounceOptions = {
   loading?: boolean;

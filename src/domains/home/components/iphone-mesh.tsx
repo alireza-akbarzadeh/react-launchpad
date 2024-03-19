@@ -19,7 +19,7 @@ interface IphoneMeshProps extends Pick<TModelViewProps, "item" | "size"> {
 }
 
 export const IphoneMesh = (props: IphoneMeshProps) => {
-  const { group, item, size } = props;
+  const { group, item } = props;
   const { nodes, materials } = useGLTF("/models/scene.glb");
   // FIXME: finde the problem
 

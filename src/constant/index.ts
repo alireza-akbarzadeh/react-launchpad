@@ -73,7 +73,11 @@ export const models = [
   },
 ];
 
-export const sizes = [
+export type TSizesList = {
+  label: string;
+  value: "small" | "large";
+};
+export const sizes: TSizesList[] = [
   { label: '6.1"', value: "small" },
   { label: '6.7"', value: "large" },
 ];

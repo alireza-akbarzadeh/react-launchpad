@@ -1,2 +1,2 @@
 export { HomeDomains } from "./home";
-export { App } from "./app/app.domains";
+export { default as App } from "./app/app.domains";

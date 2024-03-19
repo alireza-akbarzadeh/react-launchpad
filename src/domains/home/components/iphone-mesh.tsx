@@ -8,10 +8,11 @@ Title: Apple iPhone 15 Pro Max Black
 
 import { useGLTF, useTexture } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
-import { TModelViewProps } from "../container/model/view";
+
 import { useEffect } from "react";
 import * as THREE from "three";
 import { yellowImg } from "constant/Images";
+import { TModelViewProps } from "../type";
 
 interface IphoneMeshProps extends Pick<TModelViewProps, "item" | "size"> {
   group: GroupProps;

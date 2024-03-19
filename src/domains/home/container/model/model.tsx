@@ -1,13 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import { yellowImg } from "constant/Images";
 import gsap from "gsap";
-import { MutableRefObject, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { ModelView } from "./view";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { models, sizes, TSizesList } from "constant";
 import { Button } from "components";
+import { animateWithGsapTimeLine } from "lib/utils";
 
 export type TModelViewState = {
   title: string;
@@ -32,11 +33,25 @@ export const Model = () => {
   const [smallRotation, setSmallRotation] = useState<number>(0);
   const [largeRotation, setLargeRotation] = useState<number>(0);
 
+  const tl = gsap.timeline();
+
+  useEffect(() => {
+    if (size === "large") {
+      animateWithGsapTimeLine(tl, small, smallRotation, "#view1", "#view2", {
+        transform: "translateX(-100%)",
+        duration: 2,
+      });
+    }
+    if (size === "small") {
+      animateWithGsapTimeLine(tl, large, largeRotation, "#view2", "#view1", {
+        transform: "translateX(0)",
+        duration: 2,
+      });
+    }
+  }, [size]);
+
   useGSAP(() => {
-    gsap.to("#heading", {
-      opacity: 1,
-      y: 0,
-    });
+    gsap.to("#heading", { opacity: 1, y: 0 });
   }, []);
   return (
     <section className="common-padding">

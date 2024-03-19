@@ -1,5 +1,5 @@
-import { Navbar } from "./components";
-import { Features, Hero, Highlights, Model } from "./container";
+import { Footer, Navbar } from "./components";
+import { Features, Hero, Highlights, Model, ChipSection } from "./container";
 
 export const HomeDomains = () => {
   return (
@@ -9,6 +9,8 @@ export const HomeDomains = () => {
       <Highlights />
       <Model />
       <Features />
+      <ChipSection />
+      <Footer />
     </>
   );
 };

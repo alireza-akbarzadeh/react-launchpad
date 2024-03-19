@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.15.19",
     "@sentry/react": "^7.107.0",
+    "@sentry/vite-plugin": "^2.16.0",
     "@tanstack/react-query": "^5.28.4",
     "@tanstack/react-query-devtools": "^5.28.4",
     "axios": "^1.6.8",

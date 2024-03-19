@@ -14,6 +14,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.15.19",
+    "@sentry/react": "^7.107.0",
     "@tanstack/react-query": "^5.28.4",
     "@tanstack/react-query-devtools": "^5.28.4",
     "axios": "^1.6.8",

@@ -21,6 +21,7 @@
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "date-fns": "^3.6.0",
     "gsap": "^3.12.5",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.358.0",

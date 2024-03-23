@@ -1,4 +1,5 @@
 import { RootLayout, ErrorContainer } from "containers";
+import Patterns from "patterns";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       {
         path: "watch",
         element: <WatchView />,
+      },
+      {
+        path: "patterns",
+        element: <Patterns />,
       },
     ],
   },

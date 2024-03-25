@@ -62,5 +62,39 @@ const productList: Product[] = [
   },
 ];
 
-export type { Person, Product };
-export { peopleList, productList };
+interface NestedObject {
+  name: string;
+  age: number;
+  address: {
+    street: string;
+    city: string;
+    postalCode: string;
+    country: string;
+    coordinates: {
+      latitude: number;
+      longitude: number;
+    };
+    array: { items: number }[];
+  };
+  interests: string[];
+}
+
+const deepObject: NestedObject = {
+  name: "John Doe",
+  age: 30,
+  address: {
+    street: "123 Main St",
+    city: "Exampleville",
+    postalCode: "12345",
+    country: "Exampleland",
+    coordinates: {
+      latitude: 40.7128,
+      longitude: -74.006,
+    },
+    array: [{ items: 1 }],
+  },
+  interests: ["coding", "reading", "traveling"],
+};
+
+export type { Person, Product, NestedObject };
+export { peopleList, productList, deepObject };

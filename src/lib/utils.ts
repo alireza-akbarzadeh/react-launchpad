@@ -97,4 +97,6 @@ const deepPick = <T, K extends keyof T>(fields: string, object: T): T[K] => {
   return deepPick(remaining.join("."), value as any) as T[K];
 };
 
-export { deepPick, countDown };
+ const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+export { deepPick, countDown ,capitalize};
+

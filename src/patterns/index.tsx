@@ -1,23 +1,14 @@
-import { deepPick } from "lib/utils";
-import { deepObject, NestedObject } from "./data";
-import { Presons } from "./items/presons";
-import { Product } from "./items/products";
-import { LayoutComponents } from "./layout-components/layout-components";
-import { Profile } from "./modals";
-import { Button } from "components";
-
+import { NestedData, RecursiveComponents } from "./fp/Recursive-components";
+import dotenv from "dotenv";
+dotenv.config();
 function Patterns() {
-  const value = deepPick<NestedObject, "name">("name", deepObject);
-  console.log(value);
+  const value = process.env.PORT;
+  console.log({ value });
+
   return (
     <>
-      <LayoutComponents />
-      <Product />
-      <Presons />
-      <Button>button</Button>
-      <Profile />
+      <RecursiveComponents data={NestedData} />
     </>
   );
 }
-
 export default Patterns;

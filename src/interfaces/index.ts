@@ -1,1 +1,1 @@
-export type { Movies } from "./Movies.interface";
+export type { User } from "./User.interface";

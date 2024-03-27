@@ -10,7 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
+# FIXME:  checkout
+# *.local
 
 # Editor directories and files
 .vscode/*

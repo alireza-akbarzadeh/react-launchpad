@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.15.19",
@@ -22,7 +24,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
-    "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.358.0",

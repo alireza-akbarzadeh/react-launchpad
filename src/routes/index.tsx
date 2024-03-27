@@ -55,6 +55,12 @@ export const router = createBrowserRouter([
         path: "watch",
         element: <WatchView />,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    errorElement: <ErrorContainer />,
+    children: [
       {
         path: "patterns",
         element: <Patterns />,

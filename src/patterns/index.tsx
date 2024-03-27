@@ -1,13 +1,9 @@
-import { NestedData, RecursiveComponents } from "./fp/Recursive-components";
-import dotenv from "dotenv";
-dotenv.config();
-function Patterns() {
-  const value = process.env.PORT;
-  console.log({ value });
+import { Badge } from "components/ui/badge";
 
+function Patterns() {
   return (
     <>
-      <RecursiveComponents data={NestedData} />
+      <Badge variant="destructive">Badge</Badge>
     </>
   );
 }

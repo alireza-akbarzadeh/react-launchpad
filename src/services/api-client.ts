@@ -1,17 +1,13 @@
 import axios, { AxiosRequestConfig } from "axios";
 export interface FetchResponse<T> {
-  count: number;
-  next: string | null;
-  results: T[];
+  data: T[];
 }
 
-const key = "8257b43c498c40428c973400f9b32790";
-
 const axiosInstance = axios.create({
-  baseURL: "https://api.rawg.io/api",
-  params: {
-    key,
-  },
+  baseURL: "https://jsonplaceholder.typicode.com",
+  // params: {
+  //   key,
+  // },
 });
 
 class APICLient<T> {

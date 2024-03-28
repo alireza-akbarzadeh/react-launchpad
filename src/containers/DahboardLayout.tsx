@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Loading } from "./loading";
 import { ProtectedRoute } from "./ProtectedRoute";
 
-export const RootLayout = () => {
+export const DashboardLayout = () => {
   return (
     <Suspense
       fallback={
@@ -12,7 +12,7 @@ export const RootLayout = () => {
         </>
       }
     >
-      <main className="bg-black overflow-hidden text-white border border-[#3b3b3b]">
+      <main>
         <ProtectedRoute isPublic isAuthorized />
       </main>
     </Suspense>

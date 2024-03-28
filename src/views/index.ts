@@ -7,3 +7,4 @@ export { default as VisionView } from "./vision.view";
 export { default as WatchView } from "./watch.view";
 export { default as AirPodsView } from "./airpods.view";
 export { default as IpadView } from "./ipad.view";
+export { default as PatternView } from "./patterns.view";

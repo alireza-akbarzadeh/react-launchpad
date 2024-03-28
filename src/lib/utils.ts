@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/all";
 import { MutableRefObject } from "react";
 import { twMerge } from "tailwind-merge";
 import { type ClassValue, clsx } from "clsx";
+import { Brand } from "./type-helper";
+import { RegexPatterns } from "constant/regex-patterns";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,6 +99,23 @@ const deepPick = <T, K extends keyof T>(fields: string, object: T): T[K] => {
   return deepPick(remaining.join("."), value as any) as T[K];
 };
 
- const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-export { deepPick, countDown ,capitalize};
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+export { deepPick, countDown, capitalize };
 
+type EmailAddress = Brand<string, "EmailAddress">;
+
+export const isValidEmail = (email: string): email is EmailAddress => {
+  return RegexPatterns.Email.test(email);
+};
+
+export function isValid(input: string, regex: RegExp): boolean {
+  return regex.test(input);
+}
+export function assertValid<T>(input: T, regex: RegExp): asserts input is T {
+  if (typeof input !== "string" && typeof input !== "number") {
+    throw new Error("Input must be a string or number");
+  }
+  if (!regex.test(String(input))) {
+    throw new Error("Input does not match the expected pattern");
+  }
+}

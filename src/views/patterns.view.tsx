@@ -1,36 +1,24 @@
-import { Button } from "components";
-import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "components/ui/alert-dialog";
+import { AspectRatio } from "components/ui/aspect-ratio";
 
 function Patterns() {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger>
-        <Button>show dialog</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+    <>
+      <BreadcrumbDemo />
+    </>
   );
 }
 export default Patterns;
+
+export function BreadcrumbDemo() {
+  return (
+    <div className="Container">
+      <AspectRatio ratio={16 / 9}>
+        <img
+          className="Image"
+          src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+          alt="Landscape photograph by Tobias Tullius"
+        />
+      </AspectRatio>
+    </div>
+  );
+}

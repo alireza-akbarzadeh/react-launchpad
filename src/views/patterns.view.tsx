@@ -13,14 +13,16 @@ import {
   FormMessage,
 } from "components/ui/form";
 import { Input } from "components/ui/input";
-import Icon from "components/ui/icon";
+import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
+import { InputController } from "components/common/input-controller";
+import { render } from "react-dom";
 
 type FormValues = z.infer<typeof formSchema>;
 
 const formSchema = z
   .object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
+    username: z.string().min(4, {
+      message: "Username must be at least 4 characters.",
     }),
     email: z.string().email({ message: "Invalid email address." }),
     password: z
@@ -42,100 +44,117 @@ const formSchema = z
 function Pattern() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      isShowPass: false,
-      isShowConfrimPass: false,
-    },
+    // defaultValues: {
+    //   username: "",
+    //   email: "",
+    //   password: "",
+    //   confirmPassword: "",
+    //   isShowPass: false,
+    //   isShowConfrimPass: false,
+    // },
   });
   function onSubmit(values: FormValues) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+  const isShowPass = form.watch("isShowPass");
+  const isShowConfrimPass = form.watch("isShowConfrimPass");
+
   return (
-    <div className="container">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="user name" {...field} />
-                </FormControl>
-                <FormDescription>
-                  you should enter your username here
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="enter your email"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  you should enter your email here
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    endIcon={<Icon name="Camera" className="w-5 h-5" />}
-                    type="password"
-                    placeholder="password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  you should enter your password here
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="password" {...field} />
-                </FormControl>
-                <FormDescription>
-                  you should enter your Confirm here
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Submit</Button>
-        </form>
-      </Form>
+    <div className="container mt-10">
+      <Card>
+        <CardHeader>
+          <CardTitle>Login</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <InputController
+                label="Username"
+                description="you should enter your username here"
+                formControll={{
+                  control: form.control,
+                  name: "username",
+                  defaultValue: "adasdadasdas",
+                }}
+              />
+              <InputController
+                label="Email"
+                description="you should enter your email here"
+                formControll={{
+                  control: form.control,
+                  name: "email",
+                }}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                defaultValue="313123123"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        icon={{
+                          name: isShowPass ? "EyeOff" : "Eye",
+                          position: "end",
+                          className: "cursor-pointer",
+                          onIconCLick: () => {
+                            form.setValue(
+                              "isShowPass",
+                              !form.getValues("isShowPass")
+                            );
+                          },
+                        }}
+                        type={isShowPass ? "type" : "password"}
+                        placeholder="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      you should enter your password here
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        icon={{
+                          name: isShowConfrimPass ? "EyeOff" : "Eye",
+                          position: "end",
+                          className: "cursor-pointer",
+                          onIconCLick: () => {
+                            form.setValue(
+                              "isShowConfrimPass",
+                              !form.getValues("isShowConfrimPass")
+                            );
+                          },
+                        }}
+                        type={isShowConfrimPass ? "type" : "password"}
+                        placeholder="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      you should enter your Confirm here
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
     </div>
   );
 }

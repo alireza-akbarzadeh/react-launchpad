@@ -4,7 +4,12 @@ import { z } from "zod";
 
 import { Button } from "components";
 import { InputController } from "components/ui/form/input-controller";
-import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "components/ui/card/card";
 import { Form } from "components/ui/form/form";
 import { CheckboxController } from "components/ui/form/checkbox-controller";
 import { useToast } from "components/ui/toast";
@@ -109,7 +114,7 @@ export const SignUp = () => {
                     onIconCLick: () => {
                       form.setValue(
                         "isShowPass",
-                        !form.getValues("isShowPass")
+                        !form.getValues("isShowPass"),
                       );
                     },
                   },
@@ -132,7 +137,7 @@ export const SignUp = () => {
                     onIconCLick: () => {
                       form.setValue(
                         "isShowConfrimPass",
-                        !form.getValues("isShowConfrimPass")
+                        !form.getValues("isShowConfrimPass"),
                       );
                     },
                   },

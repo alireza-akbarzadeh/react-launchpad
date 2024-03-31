@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "lib/utils";
-import { Icon, IconProps } from "./icon";
+import { Icon, IconProps } from "../icon";
 import { icons } from "lucide-react";
 
 interface InputIconProps extends IconProps {

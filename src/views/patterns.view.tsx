@@ -3,19 +3,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "components";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "components/ui/form";
-import { Input } from "components/ui/input";
+import { InputController } from "components/ui/form/input-controller";
 import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
-import { InputController } from "components/common/input-controller";
-import { render } from "react-dom";
+import { Form } from "components/ui/form/form";
+import { CheckboxController } from "components/ui/form/checkbox-controller";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -28,7 +19,10 @@ const formSchema = z
     password: z
       .string()
       .min(8, { message: "Password must be at least 8 characters." }),
-    confirmPassword: z.string().min(8),
+    confirmPassword: z
+      .string()
+      .min(8, { message: "The passwords did not match" }),
+    agreement: z.boolean().default(false).optional(),
     isShowPass: z.boolean().optional(),
     isShowConfrimPass: z.boolean().optional(),
   })
@@ -44,14 +38,15 @@ const formSchema = z
 function Pattern() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    // defaultValues: {
-    //   username: "",
-    //   email: "",
-    //   password: "",
-    //   confirmPassword: "",
-    //   isShowPass: false,
-    //   isShowConfrimPass: false,
-    // },
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      agreement: false,
+      isShowPass: false,
+      isShowConfrimPass: false,
+    },
   });
   function onSubmit(values: FormValues) {
     // Do something with the form values.
@@ -73,7 +68,7 @@ function Pattern() {
               <InputController
                 label="Username"
                 description="you should enter your username here"
-                formControll={{
+                inputControll={{
                   control: form.control,
                   name: "username",
                   defaultValue: "adasdadasdas",
@@ -82,73 +77,65 @@ function Pattern() {
               <InputController
                 label="Email"
                 description="you should enter your email here"
-                formControll={{
+                inputControll={{
                   control: form.control,
                   name: "email",
                 }}
               />
-              <FormField
-                control={form.control}
-                name="password"
-                defaultValue="313123123"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        icon={{
-                          name: isShowPass ? "EyeOff" : "Eye",
-                          position: "end",
-                          className: "cursor-pointer",
-                          onIconCLick: () => {
-                            form.setValue(
-                              "isShowPass",
-                              !form.getValues("isShowPass")
-                            );
-                          },
-                        }}
-                        type={isShowPass ? "type" : "password"}
-                        placeholder="password"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      you should enter your password here
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
+
+              <InputController
+                label="Password"
+                description="you should enter your password here"
+                inputControll={{
+                  control: form.control,
+                  name: "password",
+                }}
+                inputProps={{
+                  type: isShowPass ? "type" : "password",
+                  placeholder: "Enter your password",
+                  icon: {
+                    name: isShowPass ? "EyeOff" : "Eye",
+                    position: "end",
+                    className: "cursor-pointer",
+                    onIconCLick: () => {
+                      form.setValue(
+                        "isShowPass",
+                        !form.getValues("isShowPass")
+                      );
+                    },
+                  },
+                }}
               />
-              <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        icon={{
-                          name: isShowConfrimPass ? "EyeOff" : "Eye",
-                          position: "end",
-                          className: "cursor-pointer",
-                          onIconCLick: () => {
-                            form.setValue(
-                              "isShowConfrimPass",
-                              !form.getValues("isShowConfrimPass")
-                            );
-                          },
-                        }}
-                        type={isShowConfrimPass ? "type" : "password"}
-                        placeholder="password"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      you should enter your Confirm here
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
+              <InputController
+                label="Confirm Password"
+                description="you should enter your confirm password here"
+                inputControll={{
+                  control: form.control,
+                  name: "confirmPassword",
+                }}
+                inputProps={{
+                  type: isShowConfrimPass ? "type" : "password",
+                  placeholder: "Enter your Confirm password",
+                  icon: {
+                    name: isShowConfrimPass ? "EyeOff" : "Eye",
+                    position: "end",
+                    className: "cursor-pointer",
+                    onIconCLick: () => {
+                      form.setValue(
+                        "isShowConfrimPass",
+                        !form.getValues("isShowConfrimPass")
+                      );
+                    },
+                  },
+                }}
+              />
+              <CheckboxController
+                label="Agreement"
+                itemClassName="rounded-md border p-4"
+                checkboxControll={{
+                  control: form.control,
+                  name: "agreement",
+                }}
               />
               <Button type="submit">Submit</Button>
             </form>

@@ -1,3 +1,5 @@
+import { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
+
 import {
   FormControl,
   FormDescription,
@@ -5,16 +7,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "components/ui/form";
-import { Input } from "components/ui/input";
-import { ReactNode } from "react";
-import {
-  Control,
-  ControllerProps,
-  ControllerRenderProps,
-  FieldPath,
-  FieldValues,
-} from "react-hook-form";
+} from "components/ui/form/form";
+import { Input, InputProps } from "components/ui/form/input";
 
 interface InputControllerProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -22,7 +16,9 @@ interface InputControllerProps<
 > {
   label: string;
   description?: string;
-  formControll: Omit<ControllerProps<TFieldValues, TName>, "render">;
+  inputControll: Omit<ControllerProps<TFieldValues, TName>, "render">;
+  inputProps?: InputProps;
+
   //   render?: (field: ControllerRenderProps<FieldValues, TName>) => ReactNode;
 }
 
@@ -32,7 +28,7 @@ export const InputController = <
 >(
   props: InputControllerProps<TFieldValues, TName>
 ) => {
-  const { formControll, label, description, ...rest } = props;
+  const { inputControll, inputProps, label, description, ...rest } = props;
 
   return (
     <FormField
@@ -40,13 +36,13 @@ export const InputController = <
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input placeholder="user name" {...field} />
+            <Input placeholder="user name" {...field} {...inputProps} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>
       )}
-      {...formControll}
+      {...inputControll}
       {...rest}
     />
   );

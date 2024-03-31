@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "components/ui/button/button";
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
   component: Button,
+  title: "Ui/Button",
+  tags: ["autodocs"],
   args: {
     variant: "default",
     children: "Button",
@@ -33,7 +34,11 @@ export const Ghost: Story = {
   render: (args) => <Button {...args} variant="ghost" />,
 };
 export const Link: Story = {
-  render: (args) => <Button {...args} variant="link" />,
+  render: (args) => (
+    <Button asChild {...args} variant="link">
+      <a href="">link to some where</a>
+    </Button>
+  ),
 };
 export const Secondary: Story = {
   render: (args) => <Button {...args} variant="secondary" />,

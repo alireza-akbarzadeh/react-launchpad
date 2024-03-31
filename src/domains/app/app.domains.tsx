@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "routes";
-import "./App.css";
+import "styles/App.css";
 import { AuthProvider } from "providers";
 import { Toaster } from "components/ui/toast/toaster";
 

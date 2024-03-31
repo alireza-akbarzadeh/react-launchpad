@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "routes";
 import "./App.css";
 import { AuthProvider } from "providers";
+import { Toaster } from "components/ui/toast/toaster";
 
 export const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
       <AuthProvider>
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools />
+          <Toaster />
           <RouterProvider router={router} />
         </QueryClientProvider>
       </AuthProvider>

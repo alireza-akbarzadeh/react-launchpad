@@ -8,7 +8,7 @@ const labelVariants = cva(
 );
 
 // Define props interface for the Label component
-interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   asChild?: boolean; // Indicate if the label should be rendered as a child element
 }
 

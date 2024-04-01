@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card, CardContent } from "components/ui/card/card";
 import { Label, LabelProps } from "components/ui/form/label";
+import { Checkbox } from "../checkbox";
 
 const meta: Meta<typeof Label> = {
   component: Label,
@@ -9,7 +10,7 @@ const meta: Meta<typeof Label> = {
   decorators: [
     (story) => <Card><CardContent>{story()}</CardContent></Card>,
   ],
-  args: { children: "button", htmlFor: "userName" },
+  args: { children: "your email Address here", htmlFor: "email" },
   parameters: {
     controls: { expanded: true },
   },
@@ -31,3 +32,19 @@ export const Default: Story = {
     ...labelDefaultArgs,
   },
 };
+
+export const LabelCheked: Story = {
+  args: {
+    ...labelDefaultArgs,
+  },
+  decorators: [
+    (story) => <Card>
+      <CardContent className="flex space-x-2">
+        <Label htmlFor="email" />
+        <Checkbox id="email" />
+        {story()}
+      </CardContent>
+    </Card>,
+  ]
+};
+

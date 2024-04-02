@@ -13,6 +13,7 @@ const meta: Meta<typeof Label> = {
   args: { children: "your email Address here", htmlFor: "email" },
   parameters: {
     controls: { expanded: true },
+    layout:"centered"
   },
 };
 

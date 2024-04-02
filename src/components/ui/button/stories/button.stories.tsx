@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "components/ui/button/button";
+import  { fn } from "@storybook/test";
+import { SIZES, VARIANT } from "constant/themes";
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -11,21 +13,22 @@ const meta: Meta<typeof Button> = {
   args: { children: "button" },
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', "destructive", "link", "ghost", " outline", "secondary"],
+      options:Object.keys(VARIANT),
       control: { type: 'radio' },
     },
     children: { control: "text" },
-    onClick: { action: "clicked" },
+    onClick: { action: fn() },
     fullWidth: { active: { control: "boolean" } },
     disabled: { control: "boolean" },
     asChild: { table: { disable: true } },
     size: {
-      options: ["default", "sm", "lg", "icon"],
+      options:Object.keys(SIZES),
       control: { type: "radio" },
     },
   },
   parameters: {
     controls: { expanded: true },
+    layout:"centered"
   },
 };
 
@@ -43,7 +46,6 @@ export const buttonDefaultArgs = {
 export const Default: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "default",
   },
 };
 export const Destructive: Story = {

@@ -4,7 +4,7 @@ import { icons, LucideProps } from "lucide-react";
 import { forwardRef } from "react";
 
 // Define icon variants
-const iconVariants = cva("px-2 text-muted-foreground", {
+const iconVariants = cva("px-2", {
   variants: {
     sizes: {
       default: "size-10",
@@ -14,14 +14,14 @@ const iconVariants = cva("px-2 text-muted-foreground", {
       lg: "size-17",
     },
     colors: {
-      default: "text-muted-foreground",
+      muted: "text-muted-foreground",
       primary: "text-primary",
       secondary: "text-secondary",
     },
   },
   defaultVariants: {
     sizes: "default",
-    colors: "default",
+    colors: "primary",
   },
 });
 
@@ -39,7 +39,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
       <LucideIcon
         ref={ref}
         className={cn(
-          "text-muted-foreground size-8",
+          "rounded-full size-5",
           iconVariants({ sizes, colors, className })
         )}
         {...props}

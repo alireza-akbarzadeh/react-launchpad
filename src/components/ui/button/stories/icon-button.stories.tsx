@@ -1,29 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton, IconButtonProps } from "components/ui/button/icon-button";
-import { Card, CardContent } from "components/ui/card/card";
+import { SIZES, VARIANT } from "constant/themes";
+
 
 const meta: Meta<IconButtonProps> = {
   component: IconButton,
   title: "Buttons/IconButton",
   tags: ["autodocs"],
-  decorators: [
-    (story) => <Card><CardContent>{story()}</CardContent></Card>,
-  ],
   args: {
-    variant: "default",
-    children: "Button",
-    size: "sm",
-    iconName: "ZoomIn",
+    iconName: "User",
+    iconSize:"lg",
+    sizes:"lg"
   },
   argTypes: {
     onClick: { action: "clicked" },
     disabled: { control: "boolean" },
     variant: {
-      options: ["primary", "secondary", "link", "ghost", "link", "secondary"],
+      options:Object.keys(VARIANT),
       control: { type: "select" },
     },
+   roundedFull:{
+      control: { type: "boolean" },
+    },
     size: {
-      options: ["default", "xs", "sm", "md", "lg"],
+      control: { type: "text" },
+    },
+    sizes: {
+      options: Object.keys(SIZES),
+      control: { type: "radio" },
+    },
+    iconSize: {
+      options: Object.keys(SIZES),
       control: { type: "radio" },
     },
   },
@@ -31,53 +38,18 @@ const meta: Meta<IconButtonProps> = {
 
 type Story = StoryObj<typeof IconButton>;
 
-const defaultArgs = {
-  className: "text-white",
-} as IconButtonProps;
 
-export const Default: Story = {
-  render: (args) => <IconButton {...args} />,
-  args: {
-    ...defaultArgs,
-  },
-};
-export const Destructive: Story = {
-  render: (args) => <IconButton {...args} />,
-  args: {
-    ...defaultArgs,
-    variant: "destructive",
-  },
-};
 
-export const Secondary: Story = {
-  render: (args) => <IconButton {...args} />,
+export const Outline: Story = {
   args: {
-    ...defaultArgs,
-    className: "text-black",
-    variant: "secondary",
+      variant:"outline",
+      iconClassName:"text-black"
   },
 };
 export const Ghost: Story = {
-  render: (args) => <IconButton {...args} />,
   args: {
-    ...defaultArgs,
-    className: "text-black",
     variant: "ghost",
-  },
-};
-export const Outline: Story = {
-  render: (args) => <IconButton {...args} />,
-  args: {
-    ...defaultArgs,
-    className: "text-black",
-    variant: "outline",
-  },
-};
-export const Info: Story = {
-  render: (args) => <IconButton {...args} />,
-  args: {
-    ...defaultArgs,
-    variant: "info",
+    roundedFull:true,
   },
 };
 

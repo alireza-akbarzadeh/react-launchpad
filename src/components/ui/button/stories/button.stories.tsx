@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "components/ui/button/button";
-import { Card, CardContent } from "components/ui/card/card";
 
 const meta: Meta<typeof Button> = {
   component: Button,
   title: "Buttons/Button",
   tags: ["autodocs"],
-  decorators: [
-        (story) => <Card><CardContent>{story()}</CardContent></Card>,
-  ],
+  // decorators: [
+  //       (story) => <Card><CardContent>{story()}</CardContent></Card>,
+  // ],
   args: { children: "button" },
   argTypes: {
     variant: {
@@ -37,7 +36,7 @@ type Story = StoryObj<typeof Button>;
 
 
 export const buttonDefaultArgs = {
-  fullWidth: true
+  disabled:false,
 } as ButtonProps
 
 

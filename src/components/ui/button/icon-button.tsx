@@ -3,9 +3,11 @@ import { Button, ButtonProps, buttonVariants } from "./button";
 import { Icon, IconProps } from "../icon";
 import { cn } from "lib/utils";
 
+// TODO: see if you combine size props to one with this patterns
+//  IconProps["size"] | (string & {})
 export interface IconButtonProps extends ButtonProps {
   iconName: IconProps["name"];
-  iconSize?: IconProps["size"];
+  iconSize?: IconProps["size"] | (string & {});
   iconClassName?: IconProps["className"];
   sizes?: IconProps["sizes"];
   iconProps?: Omit<IconProps, "name" | "size" | "sizes">;

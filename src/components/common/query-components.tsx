@@ -10,7 +10,7 @@ import { Loading } from "containers";
 import { ReactNode } from "react";
 import { Code } from "./code";
 
-interface QueryProps<
+interface QueryComponentsProps<
   TData = unknown,
   TError = DefaultError,
   TQueryFnData = TData, // Adjusted the order of type parameters
@@ -35,7 +35,7 @@ interface QueryProps<
  * @template TQueryFnData The type of data used by the query function.
  * @template TQueryKey The type of query key used to identify the query in React Query.
  *
- * @param {QueryProps} props The properties passed to the QueryComponents component.
+ * @param {QueryComponentsProps} props The properties passed to the QueryComponents component.
  * @param {TData} props.onSuccess The function to render the UI when the query is successful.
  * @param {TError} [props.onError] Optional function to handle UI rendering when the query encounters an error.
  * @param {UseQueryOptions} props.options The options object used to configure the query, including the query key and query function.
@@ -50,7 +50,7 @@ export const QueryComponents = <
   TError = DefaultError,
   TQueryKey extends QueryKey = QueryKey,
 >(
-  props: QueryProps<TData, TError, TData, TQueryKey>,
+  props: QueryComponentsProps<TData, TError, TData, TQueryKey>,
 ) => {
   const { onSuccess, onError, options, queryClient, showError = false } = props;
 

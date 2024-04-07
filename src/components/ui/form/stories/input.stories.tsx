@@ -11,6 +11,7 @@ const InputStories: Meta<typeof Input> = {
     disabled: false,
     required: false,
     label: "Field",
+    variant: "primary",
     placeholder: "Enter Somthing....",
   },
   argTypes: {
@@ -43,5 +44,6 @@ export const Primary: Story = {
     name: "userName",
     type: "text",
     id: "email",
+    fullWidth: true,
   },
 };

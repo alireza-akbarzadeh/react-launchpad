@@ -56,6 +56,7 @@ export const Default: Story = {
     footer: "Built with Storybook",
   },
 };
+
 export const Destructive: Story = {
   args: {
     ...buttonDefaultArgs,
@@ -96,5 +97,11 @@ export const Info: Story = {
   args: {
     ...buttonDefaultArgs,
     variant: "info",
+  },
+};
+
+Info.parameters = {
+  viewport: {
+    viewports: "FHD",
   },
 };

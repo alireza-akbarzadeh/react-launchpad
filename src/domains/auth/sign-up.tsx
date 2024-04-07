@@ -151,7 +151,7 @@ export const SignUp = () => {
                   name: "agreement",
                 }}
               />
-              <Button  type="submit">Submit</Button>
+              <Button type="submit">Submit</Button>
             </form>
           </Form>
         </CardContent>

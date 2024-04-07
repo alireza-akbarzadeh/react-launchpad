@@ -7,13 +7,10 @@ const meta: Meta<typeof Label> = {
   component: Label,
   title: "Forms/Label",
   tags: ["autodocs"],
-  decorators: [
-    (story) => <Card><CardContent>{story()}</CardContent></Card>,
-  ],
   args: { children: "your email Address here", htmlFor: "email" },
   parameters: {
     controls: { expanded: true },
-    layout:"centered"
+    layout: "centered",
   },
 };
 
@@ -21,12 +18,9 @@ export default meta;
 
 type Story = StoryObj<typeof Label>;
 
-
-
 const labelDefaultArgs = {
-  fullWidth: true
-} as LabelProps
-
+  fullWidth: true,
+} as LabelProps;
 
 export const Default: Story = {
   args: {
@@ -39,13 +33,14 @@ export const LabelCheked: Story = {
     ...labelDefaultArgs,
   },
   decorators: [
-    (story) => <Card>
-      <CardContent className="flex space-x-2">
-        <Label htmlFor="email" />
-        <Checkbox id="email" />
-        {story()}
-      </CardContent>
-    </Card>,
-  ]
+    (story) => (
+      <Card>
+        <CardContent className="flex space-x-2">
+          <Label htmlFor="email" />
+          <Checkbox id="email" />
+          {story()}
+        </CardContent>
+      </Card>
+    ),
+  ],
 };
-

@@ -7,20 +7,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Label } from "./label";
 
 const inputVariants = cva(
-  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "ring-primary text-primary-foreground hover:ring-primary/90 placeholder-primary-foreground",
+          "border-primary text-primary-foreground hover:border-primary/90 placeholder-primary-foreground focus-visible:ring-ring",
         destructive:
-          "ring-destructive text-destructive-foreground hover:ring-destructive/90",
-        outline:
-          "ring ring-input ring-background hover:ring-accent hover:text-accent-foreground placeholder-accent-foreground",
-        secondary:
-          "ring-secondary text-secondary-foreground hover:ring-secondary/80 placeholder-secondary-foreground",
-        info: "ring-sky-500/100 text-primary-foreground hover:ring-sky-600 placeholder-sky-500/100",
-        ghost: "hover:ring-accent hover:text-accent-foreground",
+          "border-rose-600 focus:ring ring-rose-600 border-rose-400 hover:border-rose-600/90",
+        outline: "border-none",
+        secondary: "border-secondary  hover:border-secondary/80",
+        info: "border-sky-500/100 text-sky-foreground hover:ring-sky-600 placeholder-sky-500/100",
+        ghost: "border-b",
       },
       fullWidth: { true: "w-full" },
     },

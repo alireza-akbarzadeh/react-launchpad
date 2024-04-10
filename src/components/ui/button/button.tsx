@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-          primary: "bg-primary text-primary-foreground hover:bg-primary/90",
-          destructive:
+        primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-          outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-          secondary:
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground ",
+        secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-          info: "bg-sky-500/100 text-primary-foreground hover:bg-sky-600",
-          ghost: "hover:bg-accent hover:text-accent-foreground",
-          link: "text-primary underline-offset-4 hover:underline",
+        info: "bg-sky-500/100 text-primary-foreground hover:bg-sky-600",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -37,10 +37,10 @@ const buttonVariants = cva(
         lg: "rounded-lg",
         xl: "rounded-xl",
       },
-        fullWidth: {
+      fullWidth: {
         true: "w-full",
       },
-        roundedFull: {
+      roundedFull: {
         true: "rounded-full",
       },
     },
@@ -50,7 +50,7 @@ const buttonVariants = cva(
       fullWidth: false,
       roundedFull: false,
     },
-  },
+  }
 );
 
 export interface ButtonProps
@@ -64,12 +64,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className, fullWidth}))}
+        className={cn(buttonVariants({ variant, size, className, fullWidth }))}
         ref={ref}
         {...props}
       />
     );
-  },
+  }
 );
 Button.displayName = "Button";
 

@@ -1,4 +1,4 @@
-import { RootLayout, ErrorContainer, DashboardLayout } from "containers";
+import { RootLayout, ErrorBoundray, DashboardLayout } from "containers";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    errorElement: <ErrorContainer />,
+    errorElement: <ErrorBoundray />,
     children: [
       {
         index: true,
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
-    errorElement: <ErrorContainer />,
+    errorElement: <ErrorBoundray/>,
     children: [
       {
         index: true,

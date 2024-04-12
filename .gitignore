@@ -13,6 +13,8 @@ dist-ssr
 # FIXME:  checkout
 # *.local
 
+coverage/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

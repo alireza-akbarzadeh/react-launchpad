@@ -28,7 +28,7 @@ export const ErrorBoundray = () => {
       className="flex items-center justify-center h-screen bg-gray-500/40"
     >
       {isRouteErrorResponse(error) ? (
-        <p className="text-3xl font-bold">This page does not exist.</p>
+        <p className="text-3xl font-bold">This page does not exist..</p>
       ) : (
         <Card className="space-y-6">
           <CardHeader>Ops..</CardHeader>

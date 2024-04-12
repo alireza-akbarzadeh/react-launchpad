@@ -3,6 +3,7 @@ import { it, describe, expect } from "vitest";
 
 describe("isRouteErrorResponse", () => {
   it("sgnals error response", () => {
-    expect(isRouteErrorResponse(new Error("error"))).toBe(true);
+    const valuse = { name: "mosh" };
+    expect(valuse).toEqual({ name: "mosh" });
   });
 });

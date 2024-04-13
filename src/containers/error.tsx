@@ -1,24 +1,24 @@
-import { useGSAP } from "@gsap/react";
-import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
-import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
 
-import { Button } from "components";
+import { Button } from 'components';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "components/ui/card/card";
+} from 'components/ui/card/card';
+import gsap from 'gsap';
+import { isRouteErrorResponse, Link, useRouteError } from 'react-router-dom';
 
-export const ErrorBoundray = () => {
+export function ErrorBoundray() {
   const error = useRouteError() as Error;
 
   useGSAP(() => {
-    gsap.from("#error", {
+    gsap.from('#error', {
       opacity: 0,
       scale: 1.5,
       duration: 2,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
     });
   });
 
@@ -54,4 +54,4 @@ export const ErrorBoundray = () => {
       )}
     </div>
   );
-};
+}

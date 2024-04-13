@@ -4,7 +4,7 @@ import {
   isValidElement,
   ReactElement,
   ReactNode,
-} from "react";
+} from 'react';
 
 export  interface ChildProps<T> {
   goToNext: (stepData: T) => void;
@@ -16,7 +16,7 @@ interface IStepProps<T> {
   currentIndex: number;
 }
 
-export const Steps = <T,>(props: IStepProps<T>) => {
+export const Steps = <T>(props: IStepProps<T>) => {
   const { children, currentIndex = 0, onNext } = props;
 
   const goToNext = (stepData: T) => {

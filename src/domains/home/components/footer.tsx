@@ -1,12 +1,12 @@
-import { footerLinks } from "constant";
+import { footerLinks } from 'constant';
 
-export const Footer = () => {
+export function Footer() {
   return (
     <footer className="py-5 sm:px-10 px-5">
       <div className="screen-max-width">
         <div>
           <p className="font-semibold text-gray text-xs">
-            More ways to shop:{" "}
+            More ways to shop:{' '}
             <span className="underline text-blue">Find an Apple Store </span>
             or <span className="underline text-blue">other retailer</span> near
             you.
@@ -25,7 +25,7 @@ export const Footer = () => {
           <div className="flex">
             {footerLinks.map((link, i) => (
               <p key={link} className="font-semibold text-gray text-xs">
-                {link}{" "}
+                {link}{' '}
                 {i !== footerLinks.length - 1 && (
                   <span className="mx-2"> | </span>
                 )}
@@ -36,4 +36,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+}

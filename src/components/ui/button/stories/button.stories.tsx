@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonProps } from "components/ui/button/button";
-import { fn } from "@storybook/test";
-import { SIZES, VARIANT } from "constant/themes";
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { Button, ButtonProps } from 'components/ui/button/button';
+import { SIZES, VARIANT } from 'constant/themes';
 
 type ButtonPageProps = React.ComponentProps<typeof Button> & {
   footer?: string;
@@ -9,36 +9,36 @@ type ButtonPageProps = React.ComponentProps<typeof Button> & {
 
 const meta = {
   component: Button,
-  title: "Buttons/Button",
+  title: 'Buttons/Button',
   render: ({ footer, ...args }) => (
     <>
       <Button {...args}>button</Button>
       <footer>{footer}</footer>
     </>
   ),
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   // decorators: [
   //       (story) => <Card><CardContent>{story()}</CardContent></Card>,
   // ],
-  args: { children: "button" },
+  args: { children: 'button' },
   argTypes: {
     variant: {
       options: Object.keys(VARIANT),
-      control: { type: "radio" },
+      control: { type: 'radio' },
     },
-    children: { control: "text" },
+    children: { control: 'text' },
     onClick: { action: fn() },
-    fullWidth: { active: { control: "boolean" } },
-    disabled: { control: "boolean" },
+    fullWidth: { active: { control: 'boolean' } },
+    disabled: { control: 'boolean' },
     asChild: { table: { disable: true } },
     size: {
       options: Object.keys(SIZES),
-      control: { type: "radio" },
+      control: { type: 'radio' },
     },
   },
   parameters: {
     controls: { expanded: true },
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<ButtonPageProps>;
 
@@ -53,21 +53,21 @@ export const buttonDefaultArgs = {
 export const Default: Story = {
   args: {
     ...buttonDefaultArgs,
-    footer: "Built with Storybook",
+    footer: 'Built with Storybook',
   },
 };
 
 export const Destructive: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "destructive",
+    variant: 'destructive',
   },
 };
 
 export const Ghost: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "ghost",
+    variant: 'ghost',
   },
 };
 export const Link: Story = {
@@ -78,30 +78,30 @@ export const Link: Story = {
   ),
   args: {
     ...buttonDefaultArgs,
-    variant: "link",
+    variant: 'link',
   },
 };
 export const Secondary: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "secondary",
+    variant: 'secondary',
   },
 };
 export const Outline: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "outline",
+    variant: 'outline',
   },
 };
 export const Info: Story = {
   args: {
     ...buttonDefaultArgs,
-    variant: "info",
+    variant: 'info',
   },
 };
 
 Info.parameters = {
   viewport: {
-    viewports: "FHD",
+    viewports: 'FHD',
   },
 };

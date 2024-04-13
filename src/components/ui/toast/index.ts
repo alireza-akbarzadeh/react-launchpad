@@ -8,6 +8,6 @@ export {
   ToastViewport,
   type ToastActionElement,
   type ToastProps,
-} from "./toast";
+} from './toast';
 
-export { toast, useToast } from "./use-toast";
+export { toast, useToast } from './use-toast';

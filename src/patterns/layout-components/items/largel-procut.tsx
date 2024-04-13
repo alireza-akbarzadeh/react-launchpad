@@ -1,6 +1,6 @@
-import { Product as TProduct } from "patterns/data";
+import { Product as TProduct } from 'patterns/data';
 
-export const LargeProduct = (props: TProduct) => {
+export function LargeProduct(props: TProduct) {
   const { description, name, price, rating } = props;
   return (
     <div className="max-w-xs rounded overflow-hidden shadow-lg bg-slate-500">
@@ -18,4 +18,4 @@ export const LargeProduct = (props: TProduct) => {
       </div>
     </div>
   );
-};
+}

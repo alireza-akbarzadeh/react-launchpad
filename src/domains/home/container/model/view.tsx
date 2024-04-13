@@ -1,18 +1,18 @@
-import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei";
-import { Lights, Loader } from "domains/home/components";
-import { IphoneMesh } from "domains/home/components/iphone-mesh";
-import { TModelViewProps } from "domains/home/type";
-import { Suspense } from "react";
-import * as THREE from "three";
+import { OrbitControls, PerspectiveCamera, View } from '@react-three/drei';
+import { Lights, Loader } from 'domains/home/components';
+import { IphoneMesh } from 'domains/home/components/iphone-mesh';
+import { TModelViewProps } from 'domains/home/type';
+import { Suspense } from 'react';
+import * as THREE from 'three';
 
-export const ModelView = (props: TModelViewProps) => {
+export function ModelView(props: TModelViewProps) {
   const { controlRef, groupRef, index, gsapType, item, setRotaion, size } =
     props;
   return (
     <View
       index={index}
       id={gsapType}
-      className={`w-full h-full absolute ${index === 2 ? "right-[-100%]" : ""}`}
+      className={`w-full h-full absolute ${index === 2 ? 'right-[-100%]' : ''}`}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
@@ -46,4 +46,4 @@ export const ModelView = (props: TModelViewProps) => {
       </group>
     </View>
   );
-};
+}

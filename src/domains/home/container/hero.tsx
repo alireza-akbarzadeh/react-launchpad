@@ -1,15 +1,15 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { heroVideo, smallHeroVideo } from "constant/Images";
-import { useWindowSize } from "hooks";
+import { useGSAP } from '@gsap/react';
+import { heroVideo, smallHeroVideo } from 'constant/Images';
+import gsap from 'gsap';
+import { useWindowSize } from 'hooks';
 
-export const Hero = () => {
+export function Hero() {
   const { width } = useWindowSize();
   const videoState = width < 765 ? smallHeroVideo : heroVideo;
 
   useGSAP(() => {
-    gsap.to("#hero", { opacity: 1, delay: 1.5 });
-    gsap.to("#cta", { opacity: 1, delay: 1.5, y: -50 });
+    gsap.to('#hero', { opacity: 1, delay: 1.5 });
+    gsap.to('#cta', { opacity: 1, delay: 1.5, y: -50 });
   }, []);
 
   return (
@@ -23,7 +23,7 @@ export const Hero = () => {
             className="pointer-events-none"
             autoPlay
             muted
-            playsInline={true}
+            playsInline
             key={videoState}
           >
             <source src={videoState} type="video/mp4" />
@@ -41,4 +41,4 @@ export const Hero = () => {
       </div>
     </section>
   );
-};
+}

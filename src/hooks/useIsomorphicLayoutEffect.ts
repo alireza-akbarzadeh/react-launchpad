@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react';
 
-  //   "In the browser, I'm an `useLayoutEffect`, but in SSR, I'm an `useEffect`.",
+//   "In the browser, I'm an `useLayoutEffect`, but in SSR, I'm an `useEffect`.",
 
 export const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;

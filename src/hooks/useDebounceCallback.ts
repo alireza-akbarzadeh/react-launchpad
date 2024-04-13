@@ -1,6 +1,7 @@
-import debounce from "lodash.debounce";
-import { useEffect, useMemo, useRef } from "react";
-import { useUnmount } from "hooks";
+import { useUnmount } from 'hooks';
+import debounce from 'lodash.debounce';
+import { useEffect, useMemo, useRef } from 'react';
+
 type DebounceOptions = {
   loading?: boolean;
   trailing?: boolean;
@@ -16,12 +17,12 @@ type ControllFunctions = {
 export type DebounceState<T extends (...args: any) => ReturnType<T>> = ((
   ...args: Parameters<T>
 ) => ReturnType<T> | undefined) &
-  ControllFunctions;
+ControllFunctions;
 
 export function useDebounceCallback<T extends (...args: any) => ReturnType<T>>(
   func: T,
   delay: number = 500,
-  options?: DebounceOptions
+  options?: DebounceOptions,
 ): DebounceState<T> {
   const debouncedFunc = useRef<ReturnType<typeof debounce>>();
 
@@ -33,20 +34,14 @@ export function useDebounceCallback<T extends (...args: any) => ReturnType<T>>(
   const debounced = useMemo(() => {
     const debouncedFuncInstance = debounce(func, delay, options);
 
-    const wrappedFunc: DebounceState<T> = (...args: Parameters<T>) => {
-      return debouncedFuncInstance(...args);
-    };
+    const wrappedFunc: DebounceState<T> = (...args: Parameters<T>) => debouncedFuncInstance(...args);
     wrappedFunc.cancel = () => {
       debouncedFuncInstance.cancel();
     };
 
-    wrappedFunc.isPending = () => {
-      return !!debouncedFunc.current;
-    };
+    wrappedFunc.isPending = () => !!debouncedFunc.current;
 
-    wrappedFunc.flush = () => {
-      return debouncedFuncInstance.flush();
-    };
+    wrappedFunc.flush = () => debouncedFuncInstance.flush();
 
     return wrappedFunc;
   }, []);

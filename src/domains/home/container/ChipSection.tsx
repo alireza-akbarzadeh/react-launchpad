@@ -1,31 +1,31 @@
-import { useGSAP } from "@gsap/react";
-import { chipImg, frameImg, frameVideo } from "constant/Images";
-import gsap from "gsap";
-import { animateWithGsap } from "lib/utils";
-import { useRef } from "react";
+import { useGSAP } from '@gsap/react';
+import { chipImg, frameImg, frameVideo } from 'constant/Images';
+import gsap from 'gsap';
+import { animateWithGsap } from 'lib/utils';
+import { useRef } from 'react';
 
-export const ChipSection = () => {
+export function ChipSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
-    gsap.from("#chip", {
+    gsap.from('#chip', {
       scrollTrigger: {
-        trigger: "#chip",
-        start: "20% bottom",
+        trigger: '#chip',
+        start: '20% bottom',
       },
       opacity: 0,
       scale: 2,
       duration: 2,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
     });
 
     animateWithGsap({
-      target: ".g_fadeIn",
+      target: '.g_fadeIn',
       animationProps: {
         opacity: 1,
         y: 0,
         duration: 1,
-        ease: "power2.inOut",
+        ease: 'power2.inOut',
       },
     });
   }, []);
@@ -75,7 +75,7 @@ export const ChipSection = () => {
         <div className="hiw-text-container">
           <div className="flex flex-1 justify-center flex-col">
             <p className="hiw-text g_fadeIn">
-              A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
+              A17 Pro is an entirely new class of iPhone chip that delivers our{' '}
               <span className="text-white">
                 best graphic performance by far
               </span>
@@ -83,7 +83,7 @@ export const ChipSection = () => {
             </p>
 
             <p className="hiw-text g_fadeIn">
-              Mobile{" "}
+              Mobile{' '}
               <span className="text-white">
                 games will look and feel so immersive
               </span>
@@ -100,4 +100,4 @@ export const ChipSection = () => {
       </div>
     </section>
   );
-};
+}

@@ -1,12 +1,12 @@
-import * as Sentry from "@sentry/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import React from "react";
-import { RouterProvider } from "react-router-dom";
-import { router } from "routes";
-import "styles/App.css";
-import { AuthProvider } from "providers";
-import { Toaster } from "components/ui/toast/toaster";
+import * as Sentry from '@sentry/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'routes';
+import 'styles/App.css';
+import { AuthProvider } from 'providers';
+import { Toaster } from 'components/ui/toast/toaster';
 
 export const queryClient = new QueryClient();
 

@@ -1,8 +1,11 @@
 // builder class
 class User {
   username: string;
+
   email: string;
+
   password: string;
+
   age?: number;
 
   constructor(builder: UserBuilder) {
@@ -15,9 +18,12 @@ class User {
 
 // Builder class
 class UserBuilder {
-  username: string = "";
-  email: string = "";
-  password: string = "";
+  username: string = '';
+
+  email: string = '';
+
+  password: string = '';
+
   age?: number;
 
   setUsername(username: string): UserBuilder {
@@ -70,9 +76,9 @@ class ValidationUtils {
 
 // Example usage
 const newUser = new UserBuilder()
-  .setUsername("john_doe")
-  .setEmail("john@example.com")
-  .setPassword("password123")
+  .setUsername('john_doe')
+  .setEmail('john@example.com')
+  .setPassword('password123')
   .setAge(25)
   .build();
 
@@ -85,10 +91,10 @@ const isAgeValid = newUser.age
   : true;
 
 // Display validation results
-console.log("Username validation:", isUsernameValid);
-console.log("Email validation:", isEmailValid);
-console.log("Password validation:", isPasswordValid);
-console.log("Age validation:", isAgeValid);
+console.log('Username validation:', isUsernameValid);
+console.log('Email validation:', isEmailValid);
+console.log('Password validation:', isPasswordValid);
+console.log('Age validation:', isAgeValid);
 
 type TPizza = {
   size: string;
@@ -100,7 +106,7 @@ type TPizza = {
 
 // Builder function
 function createPizza(builder: (newPizza: TPizza) => void): TPizza {
-  const newPizza: TPizza = { size: "medium" }; // default size
+  const newPizza: TPizza = { size: 'medium' }; // default size
   builder(newPizza);
   return newPizza;
 }
@@ -109,5 +115,5 @@ const pizzafb = createPizza((pizza) => {
   pizza.bacon = true;
   pizza.cheese = true;
   pizza.pepperoni = true;
-  pizza.size = "large";
+  pizza.size = 'large';
 });

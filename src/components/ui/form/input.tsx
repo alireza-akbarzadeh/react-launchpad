@@ -1,26 +1,26 @@
-import * as React from "react";
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'lib/utils';
+import { icons } from 'lucide-react';
+import * as React from 'react';
 
-import { cn } from "lib/utils";
-import { Icon, IconProps } from "../icon";
-import { icons } from "lucide-react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { Label } from "./label";
+import { Label } from './label';
+import { Icon, IconProps } from '../icon';
 
 const inputVariants = cva(
-  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50",
+  'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         primary:
-          "border-primary text-primary-foreground hover:border-primary/90 placeholder-primary-foreground focus-visible:ring-ring",
+          'border-primary text-primary-foreground hover:border-primary/90 placeholder-primary-foreground focus-visible:ring-ring',
         destructive:
-          "border-rose-600 focus:ring ring-rose-600 border-rose-400 hover:border-rose-600/90",
-        outline: "border-none",
-        secondary: "border-secondary  hover:border-secondary/80",
-        info: "border-sky-500/100 text-sky-foreground hover:ring-sky-600 placeholder-sky-500/100",
-        ghost: "border-b",
+          'border-rose-600 focus:ring ring-rose-600 border-rose-400 hover:border-rose-600/90',
+        outline: 'border-none',
+        secondary: 'border-secondary  hover:border-secondary/80',
+        info: 'border-sky-500/100 text-sky-foreground hover:ring-sky-600 placeholder-sky-500/100',
+        ghost: 'border-b',
       },
-      fullWidth: { true: "w-full" },
+      fullWidth: { true: 'w-full' },
     },
     defaultVariants: {
       fullWidth: false,
@@ -29,13 +29,13 @@ const inputVariants = cva(
 );
 
 interface InputIconProps extends IconProps {
-  position: "end" | "start";
+  position: 'end' | 'start';
   onIconCLick?: () => void;
 }
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {
+  VariantProps<typeof inputVariants> {
   icon?: InputIconProps;
   fullWidth?: boolean;
   label?: string | React.ReactNode;
@@ -80,10 +80,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <div
             onClick={onIconCLick}
             className={cn(
-              "ml-2 absolute  top-[50%] transform -translate-y-1/2 -translate-x-1/2",
+              'ml-2 absolute  top-[50%] transform -translate-y-1/2 -translate-x-1/2',
               {
-                "left-0": position === "start",
-                "right-0": position === "end",
+                'left-0': position === 'start',
+                'right-0': position === 'end',
               },
             )}
           >
@@ -95,6 +95,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export { Input };

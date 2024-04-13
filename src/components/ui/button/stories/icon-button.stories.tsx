@@ -1,37 +1,37 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { IconButton, IconButtonProps } from "components/ui/button/icon-button";
-import { SIZES, VARIANT } from "constant/themes";
+import type { Meta, StoryObj } from '@storybook/react';
+import { IconButton, IconButtonProps } from 'components/ui/button/icon-button';
+import { SIZES, VARIANT } from 'constant/themes';
 
 
 const meta: Meta<IconButtonProps> = {
   component: IconButton,
-  title: "Buttons/IconButton",
-  tags: ["autodocs"],
+  title: 'Buttons/IconButton',
+  tags: ['autodocs'],
   args: {
-    iconName: "User",
-    iconSize:"lg",
-    sizes:"lg"
+    iconName: 'User',
+    iconSize:'lg',
+    sizes:'lg',
   },
   argTypes: {
-    onClick: { action: "clicked" },
-    disabled: { control: "boolean" },
+    onClick: { action: 'clicked' },
+    disabled: { control: 'boolean' },
     variant: {
       options:Object.keys(VARIANT),
-      control: { type: "select" },
+      control: { type: 'select' },
     },
-   roundedFull:{
-      control: { type: "boolean" },
+    roundedFull:{
+      control: { type: 'boolean' },
     },
     size: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     sizes: {
       options: Object.keys(SIZES),
-      control: { type: "radio" },
+      control: { type: 'radio' },
     },
     iconSize: {
       options: Object.keys(SIZES),
-      control: { type: "radio" },
+      control: { type: 'radio' },
     },
   },
 };
@@ -42,13 +42,13 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Outline: Story = {
   args: {
-      variant:"outline",
-      iconClassName:"text-black"
+    variant:'outline',
+    iconClassName:'text-black',
   },
 };
 export const Ghost: Story = {
   args: {
-    variant: "ghost",
+    variant: 'ghost',
     roundedFull:true,
   },
 };

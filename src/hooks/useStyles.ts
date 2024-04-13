@@ -1,9 +1,7 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 const makeUseStyled = <TTheme = {}>() => {
-  const useStyled = (func: (theme: TTheme) => CSSProperties) => {
-    return {} as CSSProperties;
-  };
+  const useStyled = (func: (theme: TTheme) => CSSProperties) => ({} as CSSProperties);
 
   return useStyled;
 };

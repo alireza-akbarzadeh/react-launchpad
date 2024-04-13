@@ -1,5 +1,5 @@
-import { Button } from "components";
-import { useState } from "react";
+import { Button } from 'components';
+import { useState } from 'react';
 
 function uuid() {
   return `${new Date()}${Math.random() * 1000}`;
@@ -7,31 +7,31 @@ function uuid() {
 
 const data: TRecursiveItem[] = [
   {
-    name: "node_modules",
+    name: 'node_modules',
     id: uuid(),
   },
   {
-    name: "src",
+    name: 'src',
     id: uuid(),
     children: [
       {
-        name: "react",
+        name: 'react',
         id: uuid(),
         children: [
           {
-            name: "src",
+            name: 'src',
             id: uuid(),
             children: [
               {
-                name: "components",
+                name: 'components',
                 id: uuid(),
                 children: [
                   {
-                    name: "ag-grid",
+                    name: 'ag-grid',
                     id: uuid(),
                     children: [
                       {
-                        name: "ag-grid",
+                        name: 'ag-grid',
                         id: uuid(),
                       },
                     ],
@@ -43,19 +43,19 @@ const data: TRecursiveItem[] = [
         ],
       },
       {
-        name: "react-query",
+        name: 'react-query',
         id: uuid(),
       },
       {
-        name: "ag-grid",
+        name: 'ag-grid',
         id: uuid(),
         children: [
           {
-            name: "ag-grid",
+            name: 'ag-grid',
             id: uuid(),
             children: [
               {
-                name: "ag-grid",
+                name: 'ag-grid',
                 id: uuid(),
               },
             ],
@@ -65,28 +65,28 @@ const data: TRecursiveItem[] = [
     ],
   },
   {
-    name: "package.json",
+    name: 'package.json',
     id: uuid(),
     children: [
       {
-        name: "react-table",
+        name: 'react-table',
         id: uuid(),
       },
     ],
   },
   {
-    name: "vite.config.json",
+    name: 'vite.config.json',
     id: uuid(),
     children: [
       {
-        name: "zustand",
+        name: 'zustand',
         id: uuid(),
       },
     ],
   },
 ];
 
-export const Recursive = () => {
+export function Recursive() {
   return (
     <div>
       {data.map((child) => (
@@ -94,7 +94,7 @@ export const Recursive = () => {
       ))}
     </div>
   );
-};
+}
 
 type TRecursiveItem = {
   name: string;
@@ -102,7 +102,7 @@ type TRecursiveItem = {
   id: string;
 };
 
-const Entry = ({ entry, depth }: { entry: TRecursiveItem; depth: number }) => {
+function Entry({ entry, depth }: { entry: TRecursiveItem; depth: number }) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   return (
     <div>
@@ -123,4 +123,4 @@ const Entry = ({ entry, depth }: { entry: TRecursiveItem; depth: number }) => {
       )}
     </div>
   );
-};
+}

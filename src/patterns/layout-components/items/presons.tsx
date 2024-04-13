@@ -1,6 +1,6 @@
-import { peopleList, Person } from "patterns/data";
-import { FC, Fragment } from "react";
-import { LargePerson } from "./largel-person";
+import { peopleList, Person } from 'patterns/data';
+import { FC, Fragment } from 'react';
+import { LargePerson } from './largel-person';
 
 interface IPersonList<T> {
   items: T[];
@@ -8,7 +8,7 @@ interface IPersonList<T> {
   renderList?: (props: T) => JSX.Element;
 }
 
-export const PersonList = <T,>(props: IPersonList<T>) => {
+export function PersonList<T>(props: IPersonList<T>) {
   const { items, itemComponents: ItemComponents, renderList } = props;
   return (
     <>
@@ -21,23 +21,21 @@ export const PersonList = <T,>(props: IPersonList<T>) => {
         items.map((item, index) => <ItemComponents {...item} key={index} />)}
     </>
   );
-};
+}
 
-export const Presons = () => {
+export function Presons() {
   return (
     <div className="space-y-4">
       <PersonList<Person>
-        renderList={(preson) => {
-          return (
+        renderList={(preson) => (
             <div className="flex  gap-3">
               <p>Age:{preson.age}</p>
               <p>Name: {preson.name}</p>
             </div>
-          );
-        }}
+        )}
         items={peopleList}
       />
       <PersonList items={peopleList} itemComponents={LargePerson} />
     </div>
   );
-};
+}

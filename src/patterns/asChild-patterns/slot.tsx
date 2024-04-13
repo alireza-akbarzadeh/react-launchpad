@@ -1,5 +1,5 @@
-import React from "react";
-import { twMerge } from "tailwind-merge";
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export type AsChildProps<DefaultElementProps> =
   | ({ asChild?: false } & DefaultElementProps)

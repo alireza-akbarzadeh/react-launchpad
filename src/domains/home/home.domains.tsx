@@ -1,7 +1,7 @@
-import { Footer, Navbar } from "./components";
-import { Features, Hero, Highlights, Model, ChipSection } from "./container";
+import { Footer, Navbar } from './components';
+import { ChipSection, Features, Hero, Highlights, Model } from './container';
 
-export const HomeDomains = () => {
+export function HomeDomains() {
   return (
     <>
       <Navbar />
@@ -13,4 +13,4 @@ export const HomeDomains = () => {
       <Footer />
     </>
   );
-};
+}

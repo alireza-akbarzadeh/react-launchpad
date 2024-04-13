@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   Card,
   CardContent,
@@ -6,32 +6,32 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "components/ui/card/card";
-import { BellRing, Check } from "lucide-react";
-import { Button } from "../button/button";
+} from 'components/ui/card/card';
+import { BellRing, Check } from 'lucide-react';
+import { Button } from '../button/button';
 
 const meta: Meta<typeof Card> = {
-  title: "Ui/Card",
-  tags: ["autodocs"],
+  title: 'Ui/Card',
+  tags: ['autodocs'],
   component: Card,
   args: {
-    children: "Card",
+    children: 'Card',
   },
   argTypes: {},
 };
 
 const notifications = [
   {
-    title: "Your call has been confirmed.",
-    description: "1 hour ago",
+    title: 'Your call has been confirmed.',
+    description: '1 hour ago',
   },
   {
-    title: "You have a new message!",
-    description: "1 hour ago",
+    title: 'You have a new message!',
+    description: '1 hour ago',
   },
   {
-    title: "Your subscription is expiring soon!",
-    description: "2 hours ago",
+    title: 'Your subscription is expiring soon!',
+    description: '2 hours ago',
   },
 ];
 
@@ -40,7 +40,7 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
   render: (args) => (
     <>
-      <Card className={"w-[380px]"} {...args}>
+      <Card className="w-[380px]" {...args}>
         <CardHeader>
           <CardTitle>Notifications</CardTitle>
           <CardDescription>You have 3 unread messages.</CardDescription>
@@ -86,7 +86,7 @@ export const Default: Story = {
         <a
           className="capitalize"
           target="_blank"
-          href="https://ui.shadcn.com/docs/components/card"
+          href="https://ui.shadcn.com/docs/components/card" rel="noreferrer"
         >
           Not enough Go read the docs
         </a>

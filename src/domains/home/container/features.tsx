@@ -1,43 +1,43 @@
-import { useGSAP } from "@gsap/react";
-import { explore1Img, explore2Img, exploreVideo } from "constant/Images";
-import { animateWithGsap } from "lib/utils";
-import { useRef } from "react";
-import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
+import { explore1Img, explore2Img, exploreVideo } from 'constant/Images';
+import gsap from 'gsap';
+import { animateWithGsap } from 'lib/utils';
+import { useRef } from 'react';
 
-export const Features = () => {
+export function Features() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
-    gsap.to("#exploreVideo", {
+    gsap.to('#exploreVideo', {
       scrollTrigger: {
-        trigger: "#exploreVideo",
-        toggleActions: "play pause revers restart",
-        start: "-10% bottom",
+        trigger: '#exploreVideo',
+        toggleActions: 'play pause revers restart',
+        start: '-10% bottom',
       },
       onComplete: () => {
         videoRef.current?.play();
       },
     });
     animateWithGsap({
-      target: "#features_title",
+      target: '#features_title',
       animationProps: {
         y: 0,
         opacity: 1,
       },
     });
     animateWithGsap({
-      target: ".g_grow",
+      target: '.g_grow',
       animationProps: {
         scale: 1,
         opacity: 1,
-        ease: "power1",
+        ease: 'power1',
       },
       scrollProps: { scrub: 5.5 },
     });
-    gsap.to(".g_text", {
+    gsap.to('.g_text', {
       y: 0,
       opacity: 1,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
       duration: 1,
     });
   }, []);
@@ -106,7 +106,7 @@ export const Features = () => {
                 <div className="flex-1 flex-center">
                   <p className="feature-text g_text">
                     Titanium has one of the best strength-to-weight ratios of
-                    any metal, making these our{" "}
+                    any metal, making these our{' '}
                     <span className="text-white">
                       lightest Pro models ever.
                     </span>
@@ -120,4 +120,4 @@ export const Features = () => {
       </div>
     </section>
   );
-};
+}

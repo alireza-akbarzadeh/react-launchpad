@@ -1,4 +1,4 @@
-import { HomeDomains } from "domains";
+import { HomeDomains } from 'domains';
 
 function HomeView() {
   return <HomeDomains />;

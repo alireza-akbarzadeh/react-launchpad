@@ -1,6 +1,6 @@
-export { InputController } from "./input-controller";
-export {} from "./checkbox";
-export { type InputProps, Input } from "./input";
+export { InputController } from './input-controller';
+export {} from './checkbox';
+export { type InputProps, Input } from './input';
 export {
   Form,
   FormControl,
@@ -10,4 +10,4 @@ export {
   FormLabel,
   FormMessage,
   useFormField,
-} from "./form";
+} from './form';

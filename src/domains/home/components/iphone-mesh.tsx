@@ -6,21 +6,21 @@ Source: https://sketchfab.com/3d-models/apple-iphone-15-pro-max-black-df17520841
 Title: Apple iPhone 15 Pro Max Black
 */
 
-import { useGLTF, useTexture } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
+import { useGLTF, useTexture } from '@react-three/drei';
+import { GroupProps } from '@react-three/fiber';
 
-import { useEffect } from "react";
-import * as THREE from "three";
-import { yellowImg } from "constant/Images";
-import { TModelViewProps } from "../type";
+import { yellowImg } from 'constant/Images';
+import { useEffect } from 'react';
+import * as THREE from 'three';
+import { TModelViewProps } from '../type';
 
-interface IphoneMeshProps extends Pick<TModelViewProps, "item" | "size"> {
+interface IphoneMeshProps extends Pick<TModelViewProps, 'item' | 'size'> {
   group: GroupProps;
 }
 
-export const IphoneMesh = (props: IphoneMeshProps) => {
+export function IphoneMesh(props: IphoneMeshProps) {
   const { group, item } = props;
-  const { nodes, materials } = useGLTF("/models/scene.glb");
+  const { nodes, materials } = useGLTF('/models/scene.glb');
   // FIXME: finde the problem
 
   const texture = useTexture(yellowImg);
@@ -29,11 +29,11 @@ export const IphoneMesh = (props: IphoneMeshProps) => {
     Object.entries(materials).map((material) => {
       // these are the material names that can't be changed color
       if (
-        material[0] !== "zFdeDaGNRwzccye" &&
-        material[0] !== "ujsvqBWRMnqdwPx" &&
-        material[0] !== "hUlRcbieVuIiOXG" &&
-        material[0] !== "jlzuBkUzuJqgiAK" &&
-        material[0] !== "xNrofRCqOXXHVZt"
+        material[0] !== 'zFdeDaGNRwzccye' &&
+        material[0] !== 'ujsvqBWRMnqdwPx' &&
+        material[0] !== 'hUlRcbieVuIiOXG' &&
+        material[0] !== 'jlzuBkUzuJqgiAK' &&
+        material[0] !== 'xNrofRCqOXXHVZt'
       ) {
         (material[1] as any).color = new THREE.Color(item.color[0]);
       }
@@ -263,6 +263,6 @@ export const IphoneMesh = (props: IphoneMeshProps) => {
       />
     </group>
   );
-};
+}
 
-useGLTF.preload("/models/scene.glb");
+useGLTF.preload('/models/scene.glb');

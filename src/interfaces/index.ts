@@ -1,1 +1,1 @@
-export type { User } from "./User.interface";
+export type { User } from './User.interface';

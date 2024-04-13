@@ -1,11 +1,12 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { rightImg, watchImg } from "constant/Images";
-import { VideoCarousel } from "./video-carousel";
-export const Highlights = () => {
+import { useGSAP } from '@gsap/react';
+import { rightImg, watchImg } from 'constant/Images';
+import gsap from 'gsap';
+import { VideoCarousel } from './video-carousel';
+
+export function Highlights() {
   useGSAP(() => {
-    gsap.to("#title", { opacity: 1, y: 0 });
-    gsap.to(".link", { opacity: 1, y: 0, duration: 1, stagger: 0.25 });
+    gsap.to('#title', { opacity: 1, y: 0 });
+    gsap.to('.link', { opacity: 1, y: 0, duration: 1, stagger: 0.25 });
   }, []);
 
   return (
@@ -33,4 +34,4 @@ export const Highlights = () => {
       </div>
     </section>
   );
-};
+}

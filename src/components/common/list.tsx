@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Fragment } from "react/jsx-runtime";
+import { FC } from 'react';
+import { Fragment } from 'react/jsx-runtime';
 
 interface IPersonList<T> {
   items: T[];
@@ -7,7 +7,7 @@ interface IPersonList<T> {
   renderList?: (props: T) => JSX.Element;
 }
 
-export const List = <T,>(props: IPersonList<T>) => {
+export function List<T>(props: IPersonList<T>) {
   const { items, itemComponents: ItemComponents, renderList } = props;
   return (
     <>
@@ -20,4 +20,4 @@ export const List = <T,>(props: IPersonList<T>) => {
         items.map((item, index) => <ItemComponents {...item} key={index} />)}
     </>
   );
-};
+}

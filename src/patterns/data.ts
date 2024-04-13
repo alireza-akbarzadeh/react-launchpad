@@ -9,24 +9,24 @@ interface Person {
 const peopleList: Person[] = [
   {
     id: 1,
-    name: "Alice",
+    name: 'Alice',
     age: 30,
-    hairColor: "Blonde",
-    hobbies: ["Reading", "Painting", "Hiking"],
+    hairColor: 'Blonde',
+    hobbies: ['Reading', 'Painting', 'Hiking'],
   },
   {
     id: 2,
-    name: "Bob",
+    name: 'Bob',
     age: 25,
-    hairColor: "Brown",
-    hobbies: ["Cooking", "Gaming", "Photography"],
+    hairColor: 'Brown',
+    hobbies: ['Cooking', 'Gaming', 'Photography'],
   },
   {
     id: 3,
-    name: "Charlie",
+    name: 'Charlie',
     age: 35,
-    hairColor: "Black",
-    hobbies: ["Traveling", "Playing Guitar", "Fishing"],
+    hairColor: 'Black',
+    hobbies: ['Traveling', 'Playing Guitar', 'Fishing'],
   },
 ];
 
@@ -41,23 +41,23 @@ interface Product {
 const productList: Product[] = [
   {
     id: 1,
-    name: "Smartphone",
+    name: 'Smartphone',
     price: 599,
-    description: "A powerful smartphone with advanced features.",
+    description: 'A powerful smartphone with advanced features.',
     rating: 4.5,
   },
   {
     id: 2,
-    name: "Laptop",
+    name: 'Laptop',
     price: 999,
-    description: "A high-performance laptop for work and entertainment.",
+    description: 'A high-performance laptop for work and entertainment.',
     rating: 4.8,
   },
   {
     id: 3,
-    name: "Headphones",
+    name: 'Headphones',
     price: 149,
-    description: "Wireless headphones with noise-canceling technology.",
+    description: 'Wireless headphones with noise-canceling technology.',
     rating: 4.3,
   },
 ];
@@ -80,20 +80,20 @@ interface NestedObject {
 }
 
 const deepObject: NestedObject = {
-  name: "John Doe",
+  name: 'John Doe',
   age: 30,
   address: {
-    street: "123 Main St",
-    city: "Exampleville",
-    postalCode: "12345",
-    country: "Exampleland",
+    street: '123 Main St',
+    city: 'Exampleville',
+    postalCode: '12345',
+    country: 'Exampleland',
     coordinates: {
       latitude: 40.7128,
       longitude: -74.006,
     },
     array: [{ items: 1 }],
   },
-  interests: ["coding", "reading", "traveling"],
+  interests: ['coding', 'reading', 'traveling'],
 };
 
 export type { Person, Product, NestedObject };

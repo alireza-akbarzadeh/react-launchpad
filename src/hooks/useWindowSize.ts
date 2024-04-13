@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 import {
   useDebounceCallback,
   useEventListener,
   useIsomorphicLayoutEffect,
-} from "./index";
+} from './index';
 
 type WindowSize<T extends number | undefined = number | undefined> = {
   width: T;
@@ -16,7 +16,7 @@ type UseWindowSizeOptions<InitializeWithValue extends boolean | undefined> = {
   debounceDelay?: number;
 };
 
-const IS_SERVER = typeof window === "undefined";
+const IS_SERVER = typeof window === 'undefined';
 
 // SSR version of useWindowSize.
 export function useWindowSize(options: UseWindowSizeOptions<false>): WindowSize;
@@ -25,7 +25,7 @@ export function useWindowSize(
   options?: Partial<UseWindowSizeOptions<true>>
 ): WindowSize<number>;
 export function useWindowSize(
-  options: Partial<UseWindowSizeOptions<boolean>> = {}
+  options: Partial<UseWindowSizeOptions<boolean>> = {},
 ): WindowSize | WindowSize<number> {
   let { initializeWithValue = true } = options;
   if (IS_SERVER) {
@@ -47,7 +47,7 @@ export function useWindowSize(
 
   const debouncedSetWindowSize = useDebounceCallback(
     setWindowSize,
-    options.debounceDelay
+    options.debounceDelay,
   );
 
   function handleSize() {
@@ -61,7 +61,7 @@ export function useWindowSize(
     });
   }
 
-  useEventListener("resize", handleSize);
+  useEventListener('resize', handleSize);
 
   // Set size at the first client-side load
   useIsomorphicLayoutEffect(() => {

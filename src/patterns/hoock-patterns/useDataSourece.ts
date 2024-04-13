@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-type TStatus = "pending" | "idle" | "fulfilled" | "error";
+type TStatus = 'pending' | 'idle' | 'fulfilled' | 'error';
 
 interface UseDataResourceReturn<T> {
   data: T | null;
@@ -18,27 +18,27 @@ interface UseDataResourceOptions<T> {
 }
 
 export const useDataResource = <T>(
-  options: UseDataResourceOptions<T>
+  options: UseDataResourceOptions<T>,
 ): UseDataResourceReturn<T> => {
   const { queryFn } = options;
   const [data, setData] = useState<T | null>(null);
-  const [status, setStatus] = useState<TStatus>("idle");
+  const [status, setStatus] = useState<TStatus>('idle');
   const [error, setError] = useState<Error | null>(null);
 
-  const isLoading = status === "pending";
-  const isSuccess = status === "fulfilled";
-  const isIdle = status === "idle";
-  const isError = status === "error";
+  const isLoading = status === 'pending';
+  const isSuccess = status === 'fulfilled';
+  const isIdle = status === 'idle';
+  const isError = status === 'error';
 
   const fetchData = async () => {
-    setStatus("pending");
+    setStatus('pending');
     try {
       const result = await queryFn();
       setData(result);
-      setStatus("fulfilled");
+      setStatus('fulfilled');
     } catch (error) {
       setError(error as Error);
-      setStatus("error");
+      setStatus('error');
     }
   };
   const refetch = () => {

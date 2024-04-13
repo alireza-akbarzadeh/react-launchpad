@@ -1,5 +1,5 @@
-import { useIsMounted } from "hooks";
-import { PropsWithChildren } from "react";
+import { useIsMounted } from 'hooks';
+import { PropsWithChildren } from 'react';
 
 function ClientOnly<T>(props: PropsWithChildren<T>) {
   const { children, ...rest } = props;
@@ -9,7 +9,7 @@ function ClientOnly<T>(props: PropsWithChildren<T>) {
 }
 export default ClientOnly;
 
-//? another version
+// ? another version
 // export default function ClientOnly<T>(props: PropsWithChildren<T>) {
 //   const { children, ...rest } = props
 //   const [hasMounted, setHasMounted] = useState(false)

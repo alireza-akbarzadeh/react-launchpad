@@ -1,4 +1,4 @@
-export const RecursiveComponents = ({ data }: { data: NestedData }) => {
+export function RecursiveComponents({ data }: { data: NestedData }) {
   return (
     <ul className="px-2">
       <div>{data.name}</div>
@@ -12,7 +12,7 @@ export const RecursiveComponents = ({ data }: { data: NestedData }) => {
         ))}
     </ul>
   );
-};
+}
 
 // Define a type for our nested data
 type NestedData = {
@@ -22,27 +22,27 @@ type NestedData = {
 
 // Sample nested data
 export const NestedData: NestedData = {
-  name: "Parent",
+  name: 'Parent',
   children: [
     {
-      name: "Child 1",
+      name: 'Child 1',
       children: [
         {
-          name: "Grandchild 1",
+          name: 'Grandchild 1',
           children: [
             {
-              name: "Great Grandchild 1",
+              name: 'Great Grandchild 1',
               children: [
                 {
-                  name: "alireza",
+                  name: 'alireza',
                   children: [
                     {
-                      name: "mehdi",
+                      name: 'mehdi',
                       children: [
                         {
-                          name: "saeed",
+                          name: 'saeed',
                           children: [
-                            { name: "hassan", children: [{ name: "maryam" }] },
+                            { name: 'hassan', children: [{ name: 'maryam' }] },
                           ],
                         },
                       ],
@@ -52,18 +52,18 @@ export const NestedData: NestedData = {
               ],
             },
             {
-              name: "Great Grandchild 2",
-              children: [{ name: "child saeed" }],
+              name: 'Great Grandchild 2',
+              children: [{ name: 'child saeed' }],
             },
           ],
         },
         {
-          name: "Grandchild 2",
+          name: 'Grandchild 2',
         },
       ],
     },
     {
-      name: "Child 2",
+      name: 'Child 2',
     },
   ],
 };

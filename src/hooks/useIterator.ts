@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from 'react';
 
 type UseIterator<TIndex> = {
   initialIndex?: number;

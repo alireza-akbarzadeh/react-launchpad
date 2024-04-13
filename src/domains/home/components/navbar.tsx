@@ -1,7 +1,7 @@
-import { navLists } from "constant";
-import { appleImg, bagImg, searchImg } from "constant/Images";
+import { navLists } from 'constant';
+import { appleImg, bagImg, searchImg } from 'constant/Images';
 
-export const Navbar = () => {
+export function Navbar() {
   return (
     <header className="flex w-full items-center justify-between py-5 sm:px-10">
       <nav className="screen-max-width flex w-full">
@@ -23,4 +23,4 @@ export const Navbar = () => {
       </nav>
     </header>
   );
-};
+}

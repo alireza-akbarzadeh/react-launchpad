@@ -2,13 +2,13 @@ import {
   DefaultError,
   QueryClient,
   QueryKey,
+  useQuery,
   UseQueryOptions,
   UseQueryResult,
-  useQuery,
-} from "@tanstack/react-query";
-import { Loading } from "containers";
-import { ReactNode } from "react";
-import { Code } from "./code";
+} from '@tanstack/react-query';
+import { Loading } from 'containers';
+import { ReactNode } from 'react';
+import { Code } from './code';
 
 interface QueryComponentsProps<
   TData = unknown,
@@ -16,9 +16,9 @@ interface QueryComponentsProps<
   TQueryFnData = TData, // Adjusted the order of type parameters
   TQueryKey extends QueryKey = QueryKey,
 > {
-  onSuccess: (
+  onSuccess?: (
     data: TData,
-    queryResult: UseQueryResult<TData, TError>,
+    queryResult: UseQueryResult<TData, TError>
   ) => ReactNode;
   onError?: (error: TError) => ReactNode;
   options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>; // Adjusted the order of types
@@ -45,13 +45,11 @@ interface QueryComponentsProps<
  * @returns {ReactNode} The JSX to render based on the query state.
  */
 
-export const QueryComponents = <
+export function QueryComponents<
   TData = unknown,
   TError = DefaultError,
   TQueryKey extends QueryKey = QueryKey,
->(
-  props: QueryComponentsProps<TData, TError, TData, TQueryKey>,
-) => {
+>(props: QueryComponentsProps<TData, TError, TData, TQueryKey>) {
   const { onSuccess, onError, options, queryClient, showError = false } = props;
 
   const query = useQuery<TData, TError, TData, TQueryKey>(options, queryClient);
@@ -61,5 +59,5 @@ export const QueryComponents = <
   if (query.isLoading) return fallbackLoading;
   if (query.error && onError) return onError(query.error);
   if (query.error && showError) return <Code value={query.error} />;
-  if (query.data) return onSuccess(query.data, query);
-};
+  if (query.data) return onSuccess?.(query.data, query);
+}

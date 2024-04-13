@@ -1,9 +1,9 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
-export const Loading = () => {
+export function Loading() {
   useGSAP(() => {
-    gsap.from("#upper .loading_Circle", {
+    gsap.from('#upper .loading_Circle', {
       y: -40,
       duration: 0.5,
       stagger: {
@@ -11,11 +11,11 @@ export const Loading = () => {
         repeat: -1,
         yoyo: true,
       },
-      ease: "power1.in",
+      ease: 'power1.in',
     });
   });
   useGSAP(() => {
-    gsap.from("#downer .loading_Circle", {
+    gsap.from('#downer .loading_Circle', {
       y: 60,
       duration: 0.5,
       stagger: {
@@ -23,18 +23,18 @@ export const Loading = () => {
         repeat: -1,
         yoyo: true,
       },
-      ease: "power1.in",
+      ease: 'power1.in',
       opacity: 0,
     });
   });
 
   useGSAP(() => {
-    gsap.to("#bounce", {
+    gsap.to('#bounce', {
       yPercent: -100,
       stagger: {
         each: 0.3,
       },
-      ease: "power4.out",
+      ease: 'power4.out',
       duration: 0.5,
       paused: true,
     });
@@ -44,19 +44,19 @@ export const Loading = () => {
     <>
       <div id="bounce" className="loading_container">
         <div id="upper" className="flex">
-          <div className="loading_Circle"></div>
-          <div className="loading_Circle"></div>
-          <div className="loading_Circle"></div>
+          <div className="loading_Circle" />
+          <div className="loading_Circle" />
+          <div className="loading_Circle" />
         </div>
         <div id="downer" className="flex">
-          <div className="loading_Circle"></div>
-          <div className="loading_Circle"></div>
-          <div className="loading_Circle"></div>
+          <div className="loading_Circle" />
+          <div className="loading_Circle" />
+          <div className="loading_Circle" />
         </div>
       </div>
-      <div id="bounce" className="loading_container cyan"></div>
-      <div id="bounce" className="loading_container darkblue"></div>
-      <div id="bounce" className="loading_container cyan"></div>
+      <div id="bounce" className="loading_container cyan" />
+      <div id="bounce" className="loading_container darkblue" />
+      <div id="bounce" className="loading_container cyan" />
     </>
   );
-};
+}

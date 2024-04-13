@@ -1,5 +1,5 @@
-const VisionView = () => {
+function VisionView() {
   return <div>VisionView</div>;
-};
+}
 
 export default VisionView;

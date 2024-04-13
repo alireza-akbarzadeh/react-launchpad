@@ -1,5 +1,5 @@
-import { Portal } from "components/common/portal";
-import { useState } from "react";
+import { Portal } from 'components/common/portal';
+import { useState } from 'react';
 
 export function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);

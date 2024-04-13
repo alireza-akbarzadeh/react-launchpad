@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Card, CardContent } from "components/ui/card/card";
-import { Label, LabelProps } from "components/ui/form/label";
-import { Checkbox } from "../checkbox";
+import type { Meta, StoryObj } from '@storybook/react';
+import { Card, CardContent } from 'components/ui/card/card';
+import { Label, LabelProps } from 'components/ui/form/label';
+import { Checkbox } from '../checkbox';
 
 const meta: Meta<typeof Label> = {
   component: Label,
-  title: "Forms/Label",
-  tags: ["autodocs"],
-  args: { children: "your email Address here", htmlFor: "email" },
+  title: 'Forms/Label',
+  tags: ['autodocs'],
+  args: { children: 'your email Address here', htmlFor: 'email' },
   parameters: {
     controls: { expanded: true },
-    layout: "centered",
+    layout: 'centered',
   },
 };
 

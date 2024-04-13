@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-import type { RefObject } from "react";
+import type { RefObject } from 'react';
 
-import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 // MediaQueryList Event based useEventListener interface
 function useEventListener<K extends keyof MediaQueryListEventMap>(
@@ -48,13 +48,13 @@ function useEventListener<
   eventName: KW | KH | KM,
   handler: (
     event:
-      | WindowEventMap[KW]
-      | HTMLElementEventMap[KH]
-      | MediaQueryListEventMap[KM]
-      | Event
+    | WindowEventMap[KW]
+    | HTMLElementEventMap[KH]
+    | MediaQueryListEventMap[KM]
+    | Event
   ) => void,
   element?: RefObject<T>,
-  options?: boolean | AddEventListenerOptions
+  options?: boolean | AddEventListenerOptions,
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef(handler);

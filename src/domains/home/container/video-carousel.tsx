@@ -1,9 +1,9 @@
-import { hightlightsSlides } from "constant";
-import { pauseImg, playImg, replayImg } from "constant/Images";
+import { hightlightsSlides } from 'constant';
+import { pauseImg, playImg, replayImg } from 'constant/Images';
 
-import { useCarouselController } from "../hooks/useCarouselController";
+import { useCarouselController } from '../hooks/useCarouselController';
 
-export const VideoCarousel = () => {
+export function VideoCarousel() {
   const {
     handleLoadedMetaData,
     handleProsess,
@@ -23,17 +23,17 @@ export const VideoCarousel = () => {
                 <video
                   ref={(el: HTMLVideoElement) => (videoRef.current[index] = el)}
                   id="video"
-                  playsInline={true}
+                  playsInline
                   muted
                   preload="auto"
-                  className={`${slide.id === 2 && "translate-x-44"} pointer-events-none`}
+                  className={`${slide.id === 2 && 'translate-x-44'} pointer-events-none`}
                   onPlay={() => {
                     setVideo((prev) => ({ ...prev, isPalying: true }));
                   }}
                   onEnded={() =>
                     index !== 3
-                      ? handleProsess("video-end", index)
-                      : handleProsess("video-last")
+                      ? handleProsess('video-end', index)
+                      : handleProsess('video-last')
                   }
                   onLoadedMetadata={(event) =>
                     handleLoadedMetaData(index, event)
@@ -73,17 +73,17 @@ export const VideoCarousel = () => {
         <button className="control-btn">
           <img
             src={isLast ? replayImg : !isPalying ? playImg : pauseImg}
-            alt={!isPalying ? "play" : "pause"}
+            alt={!isPalying ? 'play' : 'pause'}
             onClick={
               isLast
-                ? () => handleProsess("video-reset")
+                ? () => handleProsess('video-reset')
                 : !isPalying
-                  ? () => handleProsess("play")
-                  : () => handleProsess("pause")
+                  ? () => handleProsess('play')
+                  : () => handleProsess('pause')
             }
           />
         </button>
       </div>
     </>
   );
-};
+}

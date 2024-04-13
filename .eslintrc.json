@@ -11,18 +11,19 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./tests"]
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": 0,
     "tailwindcss/no-custom-classname": "off",
     "testing-library/prefer-screen-queries": "off",
+    "@typescript-eslint/comma-dangle": "off",
     "@next/next/no-html-link-for-pages": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -72,5 +73,6 @@
         }
       }
     ]
-  }
+  },
+  "ignorePatterns": ["vitest.config.ts", "tests","tailwind.config.ts"]
 }

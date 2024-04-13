@@ -1,15 +1,15 @@
-import { Children, PropsWithChildren } from "react";
+import { Children, PropsWithChildren } from 'react';
 
 interface ISplitScreenProps {
   leftWeight?: number;
   rightWeight?: number;
 }
 
-export const SplitScreen = ({
+export function SplitScreen({
   leftWeight = 1,
   rightWeight = 1,
   children,
-}: PropsWithChildren<ISplitScreenProps>) => {
+}: PropsWithChildren<ISplitScreenProps>) {
   const [left, middle, right] = Children.toArray(children);
   return (
     <div className="flex">
@@ -18,4 +18,4 @@ export const SplitScreen = ({
       <div style={{ flex: rightWeight }}>{right}</div>
     </div>
   );
-};
+}

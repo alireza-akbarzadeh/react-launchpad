@@ -1,7 +1,7 @@
-import { productList } from "patterns/data";
-import { FC } from "react";
-import { LargeProduct } from "./largel-procut";
-import { SmallProduct } from "./small-procut";
+import { productList } from 'patterns/data';
+import { FC } from 'react';
+import { LargeProduct } from './largel-procut';
+import { SmallProduct } from './small-procut';
 
 interface IRegularList<T> {
   items: T[];
@@ -20,11 +20,11 @@ export function RegularList<T>(props: IRegularList<T>) {
   );
 }
 
-export const Product = () => {
+export function Product() {
   return (
     <div className="grid grid-cols-3 space-y-4">
       <RegularList items={productList} itemComponent={SmallProduct} />
       <RegularList items={productList} itemComponent={LargeProduct} />
     </div>
   );
-};
+}

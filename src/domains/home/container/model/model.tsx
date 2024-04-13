@@ -1,14 +1,14 @@
-import { useGSAP } from "@gsap/react";
-import { yellowImg } from "constant/Images";
-import gsap from "gsap";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { ModelView } from "./view";
-import { Canvas } from "@react-three/fiber";
-import { View } from "@react-three/drei";
-import { models, sizes, TSizesList } from "constant";
-import { Button } from "components";
-import { animateWithGsapTimeLine } from "lib/utils";
+import { useGSAP } from '@gsap/react';
+import { View } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { Button } from 'components';
+import { models, sizes, TSizesList } from 'constant';
+import { yellowImg } from 'constant/Images';
+import gsap from 'gsap';
+import { animateWithGsapTimeLine } from 'lib/utils';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { ModelView } from './view';
 
 export type TModelViewState = {
   title: string;
@@ -16,11 +16,11 @@ export type TModelViewState = {
   img: string;
 };
 
-export const Model = () => {
-  const [size, setSetsize] = useState<TSizesList["value"]>("small");
+export function Model() {
+  const [size, setSetsize] = useState<TSizesList['value']>('small');
   const [modelview, setModelview] = useState<TModelViewState>({
-    title: "iphone 15 pro i n Natural titanium",
-    color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
+    title: 'iphone 15 pro i n Natural titanium',
+    color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
     img: yellowImg,
   });
   // camera control for the model view
@@ -36,22 +36,22 @@ export const Model = () => {
   const tl = gsap.timeline();
 
   useEffect(() => {
-    if (size === "large") {
-      animateWithGsapTimeLine(tl, small, smallRotation, "#view1", "#view2", {
-        transform: "translateX(-100%)",
+    if (size === 'large') {
+      animateWithGsapTimeLine(tl, small, smallRotation, '#view1', '#view2', {
+        transform: 'translateX(-100%)',
         duration: 2,
       });
     }
-    if (size === "small") {
-      animateWithGsapTimeLine(tl, large, largeRotation, "#view2", "#view1", {
-        transform: "translateX(0)",
+    if (size === 'small') {
+      animateWithGsapTimeLine(tl, large, largeRotation, '#view2', '#view1', {
+        transform: 'translateX(0)',
         duration: 2,
       });
     }
   }, [size]);
 
   useGSAP(() => {
-    gsap.to("#heading", { opacity: 1, y: 0 });
+    gsap.to('#heading', { opacity: 1, y: 0 });
   }, []);
   return (
     <section className="common-padding">
@@ -82,14 +82,14 @@ export const Model = () => {
             <Canvas
               className="w-full h-full"
               style={{
-                position: "fixed",
+                position: 'fixed',
                 top: 0,
                 bottom: 0,
                 left: 0,
                 right: 0,
-                overflow: "hidden",
+                overflow: 'hidden',
               }}
-              eventSource={document.getElementById("root") as HTMLElement}
+              eventSource={document.getElementById('root') as HTMLElement}
             >
               <View.Port />
             </Canvas>
@@ -106,7 +106,7 @@ export const Model = () => {
                     key={index}
                     className="w-6 h-6 rounded-full mx-2 cursor-pointer"
                     style={{ backgroundColor: model.color[0] }}
-                  ></li>
+                   />
                 ))}
               </ul>
               <Button className="size-btn-container">
@@ -115,8 +115,8 @@ export const Model = () => {
                     key={label}
                     className="size-btn"
                     style={{
-                      backgroundColor: size === value ? "white" : "transparent",
-                      color: size === value ? "black" : "white",
+                      backgroundColor: size === value ? 'white' : 'transparent',
+                      color: size === value ? 'black' : 'white',
                     }}
                     onClick={() => setSetsize(value)}
                   >
@@ -130,4 +130,4 @@ export const Model = () => {
       </div>
     </section>
   );
-};
+}

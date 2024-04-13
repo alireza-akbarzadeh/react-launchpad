@@ -1,6 +1,6 @@
-import { Product } from "patterns/data";
+import { Product } from 'patterns/data';
 
-export const SmallProduct = (props: Product) => {
+export function SmallProduct(props: Product) {
   const { description, name, price, rating } = props;
 
   return (
@@ -19,4 +19,4 @@ export const SmallProduct = (props: Product) => {
       </div>
     </div>
   );
-};
+}

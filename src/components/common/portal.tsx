@@ -1,5 +1,5 @@
-import { PropsWithChildren, useLayoutEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { PropsWithChildren, useLayoutEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 interface IPortalProps {
   id?: string;
@@ -7,7 +7,7 @@ interface IPortalProps {
 }
 
 export function Portal(props: PropsWithChildren<IPortalProps>) {
-  const { children, id = "portal", elements = "div" } = props;
+  const { children, id = 'portal', elements = 'div' } = props;
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
   useLayoutEffect(() => {

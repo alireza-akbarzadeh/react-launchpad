@@ -17,7 +17,7 @@ export const animateWithGsapTimeLine = (
   rotaitionState: number,
   firstTarget: '#view1' | '#view2',
   secondTarget: '#view1' | '#view2',
-  animationProps: gsap.TweenVars,
+  animationProps: gsap.TweenVars
 ) => {
   timeline.to(rotaitionRef.current.rotation, {
     y: rotaitionState,
@@ -31,7 +31,7 @@ export const animateWithGsapTimeLine = (
       ...animationProps,
       ease: 'power2.inOut',
     },
-    '<',
+    '<'
   );
   timeline.to(
     secondTarget,
@@ -39,7 +39,7 @@ export const animateWithGsapTimeLine = (
       ...animationProps,
       ease: 'power2.inOut',
     },
-    '<',
+    '<'
   );
 };
 
@@ -94,7 +94,7 @@ const deepPick = <T, K extends keyof T>(fields: string, object: T): T[K] => {
   if (typeof value !== 'object' || value === null) {
     throw new Error(`Invalid property '${first}'`);
   }
-  return deepPick(remaining.join('.'), value as any) as T[K];
+  return deepPick(remaining.join('.'), value as unknown) as T[K];
 };
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);

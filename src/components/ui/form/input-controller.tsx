@@ -1,4 +1,3 @@
-
 import {
   FormControl,
   FormDescription,
@@ -45,3 +44,8 @@ export function InputController<
     />
   );
 }
+
+InputController.defaultProps = {
+  description: false,
+  inputProps: {},
+};

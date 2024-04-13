@@ -5,7 +5,7 @@ function ClientOnly<T>(props: PropsWithChildren<T>) {
   const { children, ...rest } = props;
   const isMounted = useIsMounted();
   if (!isMounted) return <div {...rest} />;
-  return <>{children}</>;
+  return children;
 }
 export default ClientOnly;
 

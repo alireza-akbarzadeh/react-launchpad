@@ -14,13 +14,13 @@ export function useMediaQuery(
   {
     defaultValue = false,
     initializeWithValue = true,
-  }: UseMediaQueryOptions = {},
+  }: UseMediaQueryOptions = {}
 ): boolean {
-  const getMatches = (query: string): boolean => {
+  const getMatches = (matchQuery: string): boolean => {
     if (IS_SERVER) {
       return defaultValue;
     }
-    return window.matchMedia(query).matches;
+    return window.matchMedia(matchQuery).matches;
   };
 
   const [matches, setMatches] = useState<boolean>(() => {

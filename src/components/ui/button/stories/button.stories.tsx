@@ -73,7 +73,7 @@ export const Ghost: Story = {
 export const Link: Story = {
   render: (args) => (
     <Button asChild {...args} variant="link">
-      <a href="">link to some where</a>
+      <a href="@gmail.com">link to some where</a>
     </Button>
   ),
   args: {

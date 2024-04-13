@@ -48,7 +48,7 @@ export function Model() {
         duration: 2,
       });
     }
-  }, [size]);
+  }, [size, largeRotation, tl, smallRotation]);
 
   useGSAP(() => {
     gsap.to('#heading', { opacity: 1, y: 0 });
@@ -100,13 +100,14 @@ export function Model() {
             </p>
             <div className="flex-center">
               <ul className="color-container">
-                {models.map((model, index) => (
+                {models.map((model) => (
                   <li
-                    onClick={() => setModelview(model)}
-                    key={index}
+                    key={model.id}
                     className="w-6 h-6 rounded-full mx-2 cursor-pointer"
                     style={{ backgroundColor: model.color[0] }}
-                   />
+                  >
+                    <Button onClick={() => setModelview(model)} />
+                  </li>
                 ))}
               </ul>
               <Button className="size-btn-container">
@@ -118,9 +119,10 @@ export function Model() {
                       backgroundColor: size === value ? 'white' : 'transparent',
                       color: size === value ? 'black' : 'white',
                     }}
-                    onClick={() => setSetsize(value)}
                   >
-                    {label}
+                    <Button asChild onClick={() => setSetsize(value)}>
+                      {label}
+                    </Button>
                   </span>
                 ))}
               </Button>

@@ -4,6 +4,7 @@ import { icons } from 'lucide-react';
 import * as React from 'react';
 
 import { Label } from './label';
+import { Button } from '../button/button';
 import { Icon, IconProps } from '../icon';
 
 const inputVariants = cva(
@@ -25,7 +26,7 @@ const inputVariants = cva(
     defaultVariants: {
       fullWidth: false,
     },
-  },
+  }
 );
 
 interface InputIconProps extends IconProps {
@@ -35,7 +36,7 @@ interface InputIconProps extends IconProps {
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-  VariantProps<typeof inputVariants> {
+    VariantProps<typeof inputVariants> {
   icon?: InputIconProps;
   fullWidth?: boolean;
   label?: string | React.ReactNode;
@@ -56,7 +57,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       labelStyles,
       ...props
     },
-    ref,
+    ref
   ) => {
     const { onIconCLick, name, position, ...restIconProps } = icon || {};
     return (
@@ -77,24 +78,30 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {icon && (
-          <div
+          <Button
             onClick={onIconCLick}
             className={cn(
               'ml-2 absolute  top-[50%] transform -translate-y-1/2 -translate-x-1/2',
               {
                 'left-0': position === 'start',
                 'right-0': position === 'end',
-              },
+              }
             )}
           >
             <Icon name={name as keyof typeof icons} {...restIconProps} />
-          </div>
+          </Button>
         )}
       </div>
     );
-  },
+  }
 );
 
 Input.displayName = 'Input';
-
+Input.defaultProps = {
+  fullWidth: false,
+  label: false,
+  labelClassName: '',
+  labelStyles: {},
+  icon: undefined,
+};
 export { Input };

@@ -21,9 +21,9 @@ export const Example: Story = {
   render: function Render(args) {
     const [{ checked }, updateArgs] = useArgs();
 
-    function onChange() {
+    const onChange = () => {
       updateArgs({ checked: !checked });
-    }
+    };
 
     return <Checkbox {...args} onChange={onChange} />;
   },

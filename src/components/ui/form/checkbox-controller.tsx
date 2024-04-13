@@ -1,4 +1,3 @@
-
 import {
   FormControl,
   FormDescription,
@@ -42,7 +41,7 @@ export function CheckboxController<
         <FormItem
           className={cn(
             'flex flex-row items-start space-x-3 space-y-0',
-            itemClassName,
+            itemClassName
           )}
         >
           <FormControl>
@@ -67,3 +66,9 @@ export function CheckboxController<
     />
   );
 }
+
+CheckboxController.defaultProps = {
+  description: false,
+  itemClassName: false,
+  checkboxProps: {},
+};

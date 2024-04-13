@@ -42,7 +42,7 @@ export function ChipSection() {
             <br />A monter win for gaming.
           </h2>
           <p className="hiw-subtitle">
-            it's here. the biggest redesing in the history of Apple GPUs
+            its here. the biggest redesing in the history of Apple GPUs
           </p>
         </div>
         <div className="mt-10 md:mt-20 mb-14">

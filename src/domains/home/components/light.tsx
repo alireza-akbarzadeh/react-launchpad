@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+
 import { Environment, Lightformer } from '@react-three/drei';
 
 export function Lights() {

@@ -15,12 +15,12 @@ const alertVariants = cva(
         variant: 'default',
       },
     },
-  },
+  }
 );
 
 const Alert = React.forwardRef<
-HTMLDivElement,
-React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, ref) => (
   <div
     ref={ref}
@@ -32,20 +32,22 @@ React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 Alert.displayName = 'Alert';
 
 const AlertTitle = React.forwardRef<
-HTMLParagraphElement,
-React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, children, ...props }, ref) => (
   <h5
     ref={ref}
     className={cn('mb-1 font-medium leading-none tracking-tight', className)}
     {...props}
-  />
+  >
+    {children}
+  </h5>
 ));
 AlertTitle.displayName = 'AlertTitle';
 
 const AlertDescription = React.forwardRef<
-HTMLParagraphElement,
-React.HTMLAttributes<HTMLParagraphElement>
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}

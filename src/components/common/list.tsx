@@ -1,3 +1,5 @@
+// eslint-disable-next-line react/no-unknown-property
+
 import { FC } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 
@@ -14,9 +16,11 @@ export function List<T>(props: IPersonList<T>) {
       {/* this is called render props patterns */}
       {renderList &&
         items.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Fragment key={index}>{renderList(item)}</Fragment>
         ))}
       {ItemComponents &&
+        // eslint-disable-next-line react/no-array-index-key
         items.map((item, index) => <ItemComponents {...item} key={index} />)}
     </>
   );

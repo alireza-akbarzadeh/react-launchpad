@@ -60,7 +60,7 @@ export const Default: Story = {
           <div>
             {notifications.map((notification, index) => (
               <div
-                key={index}
+                key={notification.description}
                 className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
               >
                 <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
@@ -86,7 +86,8 @@ export const Default: Story = {
         <a
           className="capitalize"
           target="_blank"
-          href="https://ui.shadcn.com/docs/components/card" rel="noreferrer"
+          href="https://ui.shadcn.com/docs/components/card"
+          rel="noreferrer"
         >
           Not enough Go read the docs
         </a>

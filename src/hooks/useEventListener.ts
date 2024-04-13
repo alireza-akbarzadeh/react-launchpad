@@ -48,13 +48,13 @@ function useEventListener<
   eventName: KW | KH | KM,
   handler: (
     event:
-    | WindowEventMap[KW]
-    | HTMLElementEventMap[KH]
-    | MediaQueryListEventMap[KM]
-    | Event
+      | WindowEventMap[KW]
+      | HTMLElementEventMap[KH]
+      | MediaQueryListEventMap[KM]
+      | Event
   ) => void,
   element?: RefObject<T>,
-  options?: boolean | AddEventListenerOptions,
+  options?: boolean | AddEventListenerOptions
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef(handler);
@@ -77,6 +77,7 @@ function useEventListener<
     targetElement.addEventListener(eventName, listener, options);
 
     // Remove event listener on cleanup
+    // eslint-disable-next-line consistent-return
     return () => {
       targetElement.removeEventListener(eventName, listener, options);
     };

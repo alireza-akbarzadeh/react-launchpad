@@ -8,11 +8,19 @@ export function VideoCarousel() {
     handleLoadedMetaData,
     handleProsess,
     setVideo,
-    video: { isLast, isPalying },
+    video: { isLast, isPlaying: isPalying },
     videoRef,
     videoSpanRef,
     videoDivRef,
   } = useCarouselController();
+
+  let buttonImgSrc;
+  if (isLast) {
+    buttonImgSrc = replayImg;
+  } else {
+    buttonImgSrc = !isPalying ? playImg : pauseImg;
+  }
+  const buttonImgAlt = !isPalying ? 'play' : 'pause';
   return (
     <>
       <div className="flex items-center">
@@ -21,14 +29,16 @@ export function VideoCarousel() {
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
                 <video
-                  ref={(el: HTMLVideoElement) => (videoRef.current[index] = el)}
+                  ref={(el: HTMLVideoElement) => {
+                    videoRef.current[index] = el;
+                  }}
                   id="video"
                   playsInline
                   muted
                   preload="auto"
                   className={`${slide.id === 2 && 'translate-x-44'} pointer-events-none`}
                   onPlay={() => {
-                    setVideo((prev) => ({ ...prev, isPalying: true }));
+                    setVideo((prev) => ({ ...prev, isPlaying: true }));
                   }}
                   onEnded={() =>
                     index !== 3
@@ -57,31 +67,36 @@ export function VideoCarousel() {
         <div className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
           {videoRef?.current?.map((_, index) => (
             <span
+              // eslint-disable-next-line react/no-array-index-key
               key={index}
-              ref={(el: HTMLSpanElement) => (videoDivRef.current[index] = el)}
+              ref={(el: HTMLSpanElement) => {
+                videoDivRef.current[index] = el;
+              }}
               className="mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer"
             >
               <span
                 className="absolute h-full w-full rounded-full"
-                ref={(el: HTMLSpanElement) =>
-                  (videoSpanRef.current[index] = el)
-                }
+                ref={(el: HTMLSpanElement) => {
+                  videoSpanRef.current[index] = el;
+                }}
               />
             </span>
           ))}
         </div>
-        <button className="control-btn">
-          <img
-            src={isLast ? replayImg : !isPalying ? playImg : pauseImg}
-            alt={!isPalying ? 'play' : 'pause'}
-            onClick={
-              isLast
-                ? () => handleProsess('video-reset')
-                : !isPalying
-                  ? () => handleProsess('play')
-                  : () => handleProsess('pause')
+        <button
+          type="button"
+          className="control-btn"
+          onClick={() => {
+            if (isLast) {
+              handleProsess('video-reset');
+            } else if (!isPalying) {
+              handleProsess('play');
+            } else {
+              handleProsess('pause');
             }
-          />
+          }}
+        >
+          <img src={buttonImgSrc} alt={buttonImgAlt} />
         </button>
       </div>
     </>

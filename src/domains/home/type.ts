@@ -8,7 +8,7 @@ type TVideoState = {
   startPlay: boolean;
   videoId: number;
   isLast: boolean;
-  isPalying: boolean;
+  isPlaying: boolean;
 };
 
 type TProsessState =

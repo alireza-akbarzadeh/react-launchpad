@@ -5,7 +5,7 @@ import { expect, userEvent, within } from '@storybook/test';
 import { SignUp } from '../sign-up';
 
 const meta: Meta<typeof SignUp> = {
-  title:'Auth/SignUp',
+  title: 'Auth/SignUp',
   component: SignUp,
 };
 
@@ -19,7 +19,7 @@ export const EmptyForm: Story = {};
  * to learn more about using the canvasElement to query the DOM
  */
 /*
- * see docs for  
+ * see docs for
  * https://storybook.js.org/docs/writing-tests/interaction-testing
  */
 export const FilledForm: Story = {
@@ -37,8 +37,8 @@ export const FilledForm: Story = {
     // 👇 Assert DOM structure
     await expect(
       canvas.getByText(
-        'Everything is perfect. Your account is ready and we should probably get you started!',
-      ),
+        'Everything is perfect. Your account is ready and we should probably get you started!'
+      )
     ).toBeInTheDocument();
   },
 };

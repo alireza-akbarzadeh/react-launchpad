@@ -20,15 +20,15 @@ export const useCarouselController = (): TReturnUseCarouselController => {
     startPlay: false,
     videoId: 0,
     isLast: false,
-    isPalying: false,
+    isPlaying: false,
   });
   const [loadedData, setLoadedData] = useState<
-  {
-    index: number;
-    event: SyntheticEvent<HTMLVideoElement, Event>;
-  }[]
+    {
+      index: number;
+      event: SyntheticEvent<HTMLVideoElement, Event>;
+    }[]
   >([]);
-  const { isEnd, startPlay, videoId, isPalying } = video;
+  const { isEnd, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
     gsap.to('#slider', {
@@ -45,27 +45,30 @@ export const useCarouselController = (): TReturnUseCarouselController => {
         setVideo((prev) => ({
           ...prev,
           startPlay: true,
-          isPalying: true,
+          isPlaying: true,
         }));
       },
     });
   }, [isEnd, videoId]);
   const handleLoadedMetaData = (
     index: number,
-    event: SyntheticEvent<HTMLVideoElement, Event>,
+    event: SyntheticEvent<HTMLVideoElement, Event>
   ) => {
     setLoadedData((prev) => [...prev, { index, event }]);
   };
 
   useEffect(() => {
     if (loadedData.length > 3) {
-      if (!isPalying) {
-        videoRef.current[videoId]?.pause();
-      } else {
-        startPlay && videoRef.current[videoId]?.play();
+      const videoElement = videoRef.current[videoId];
+      if (videoElement) {
+        if (!isPlaying) {
+          videoElement.pause();
+        } else if (startPlay) {
+          videoElement.play();
+        }
       }
     }
-  }, [startPlay, videoId, isPalying, loadedData]);
+  }, [startPlay, videoId, isPlaying, loadedData, videoRef]);
 
   useEffect(() => {
     let currentProgess = 0;
@@ -75,16 +78,20 @@ export const useCarouselController = (): TReturnUseCarouselController => {
       const anim = gsap.to(span[videoId], {
         onUpdate: () => {
           const progress = Math.ceil(anim.progress() * 100);
-          if (progress != currentProgess) {
+          if (Number(progress) !== Number(currentProgess)) {
             currentProgess = progress;
+
+            let width;
+            if (window.innerWidth < 760 || window.innerWidth < 1200) {
+              width = '10vw';
+            } else {
+              width = '4vw';
+            }
+
             gsap.to(videoDivRef.current[videoId], {
-              width:
-                window.innerWidth < 760
-                  ? '10vw'
-                  : window.innerWidth < 1200
-                    ? '10vw'
-                    : '4vw',
+              width,
             });
+
             gsap.to(span[videoId], {
               width: `${currentProgess}%`,
               backgroundColor: 'white',
@@ -92,7 +99,7 @@ export const useCarouselController = (): TReturnUseCarouselController => {
           }
         },
         onComplete: () => {
-          if (isPalying) {
+          if (isPlaying) {
             gsap.to(videoDivRef.current[videoId], {
               width: '12px',
             });
@@ -108,10 +115,10 @@ export const useCarouselController = (): TReturnUseCarouselController => {
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
-            hightlightsSlides[videoId].videoDuration,
+            hightlightsSlides[videoId].videoDuration
         );
       };
-      if (isPalying) {
+      if (isPlaying) {
         // ticker to update the progress bar
         gsap.ticker.add(animUpdate);
       } else {
@@ -119,30 +126,26 @@ export const useCarouselController = (): TReturnUseCarouselController => {
         gsap.ticker.remove(animUpdate);
       }
     }
-  }, [videoId, startPlay]);
+  }, [videoId, startPlay, isPlaying]);
 
-  const handleProsess = (prosess: TProsessState, i?: number) => {
+  const handleProsess = (
+    prosess: TProsessState,
+    i?: number
+  ): TVideoState | undefined => {
     switch (prosess) {
       case 'video-end':
-        setVideo((prev) => ({ ...prev, isEnd: true, videoId: Number(i) + 1 }));
-        break;
+        return { ...video, isEnd: true, videoId: Number(i) + 1 };
       case 'video-last':
-        setVideo((prev) => ({ ...prev, isLast: true, videoId: Number(i) + 1 }));
-        break;
+        return { ...video, isLast: true, videoId: Number(i) + 1 };
       case 'video-reset':
-        setVideo((prev) => ({ ...prev, isLast: false, videoId: 0 }));
-        break;
+        return { ...video, isLast: false, videoId: 0 };
       case 'play':
-        setVideo((prev) => ({ ...prev, isPalying: !prev.isPalying }));
-        break;
       case 'pause':
-        setVideo((prev) => ({ ...prev, isPalying: !prev.isPalying }));
-        break;
+        return { ...video, isPlaying: !video.isPlaying };
       default:
         return video;
     }
   };
-
   return {
     handleProsess,
     videoRef,

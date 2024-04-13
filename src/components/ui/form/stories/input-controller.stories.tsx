@@ -3,7 +3,7 @@ import { Form } from 'components/ui/form/form';
 import { useForm } from 'react-hook-form';
 import { InputController } from '../input-controller';
 
-const withFormDecorator: Decorator = (story) => {
+function WithFormDecorator(story: () => JSX.Element) {
   const form = useForm();
   const onSubmit = () => {};
   return (
@@ -13,12 +13,12 @@ const withFormDecorator: Decorator = (story) => {
       </form>
     </Form>
   );
-};
+}
 
 const InputControllerStories: Meta<typeof InputController> = {
   title: 'Forms/InputConroller',
   component: InputController,
-  decorators: [withFormDecorator],
+  decorators: [WithFormDecorator],
   args: {
     label: 'Enter somthing..',
   },

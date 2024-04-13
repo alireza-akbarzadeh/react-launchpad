@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+
 import { OrbitControls, PerspectiveCamera, View } from '@react-three/drei';
 import { Lights, Loader } from 'domains/home/components';
 import { IphoneMesh } from 'domains/home/components/iphone-mesh';

@@ -67,7 +67,7 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((toast) =>
-          toast.id ? { ...toast, ...action.toast } : toast,
+          toast.id ? { ...toast, ...action.toast } : toast
         ),
       };
     case 'DISMISS_TOAST': {
@@ -86,10 +86,10 @@ export const reducer = (state: State, action: Action): State => {
         toasts: state.toasts.map((toast) =>
           toast.id === toastId || toastId === undefined
             ? {
-              ...toast,
-              open: false,
-            }
-            : toast,
+                ...toast,
+                open: false,
+              }
+            : toast
         ),
       };
     }

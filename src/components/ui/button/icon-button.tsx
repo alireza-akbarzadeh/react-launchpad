@@ -7,14 +7,17 @@ import { Icon, IconProps } from '../icon';
 //  IconProps["size"] | (string & {})
 export interface IconButtonProps extends ButtonProps {
   iconName: IconProps['name'];
-  iconSize?: IconProps['size'] | (string & {});
+  iconSize?: IconProps['size'] | (string & object);
   iconClassName?: IconProps['className'];
   sizes?: IconProps['sizes'];
   iconProps?: Omit<IconProps, 'name' | 'size' | 'sizes'>;
 }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ className, iconName, iconClassName, iconProps, variant, ...props }, ref) => (
+  (
+    { className, iconName, iconClassName, iconProps, variant, ...props },
+    ref
+  ) => (
     <Button
       ref={ref}
       className={cn(buttonVariants({ variant, className }))}
@@ -28,7 +31,14 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         {...iconProps}
       />
     </Button>
-  ),
+  )
 );
 
 IconButton.displayName = 'IconButton';
+
+IconButton.defaultProps = {
+  iconSize: undefined,
+  iconClassName: '',
+  sizes: undefined,
+  iconProps: {},
+};

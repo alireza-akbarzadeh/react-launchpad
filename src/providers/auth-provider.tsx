@@ -2,6 +2,7 @@ import React, {
   createContext,
   PropsWithChildren,
   useContext,
+  useMemo,
   useState,
 } from 'react';
 
@@ -32,7 +33,7 @@ export const useAuth = () => {
 };
 
 // Authentication provider component
-export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export function AuthProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<User | null>(null);
 
   const login = (userData: User) => {
@@ -46,13 +47,17 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   // Value provided by the authentication context
-  const authValues: AuthContextType = {
-    user,
-    login,
-    logout,
-  };
+
+  const authValues = useMemo<AuthContextType>(
+    () => ({
+      user,
+      login,
+      logout,
+    }),
+    [user]
+  );
 
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>
   );
-};
+}

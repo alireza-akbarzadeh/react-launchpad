@@ -48,6 +48,8 @@ const addToRemoveQueue = (toastId: string) => {
   }
   const timeout = setTimeout(() => {
     toastTimeouts.delete(toastId);
+    // FIXME: see if you can gt around with this error
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     dispatch({
       type: 'REMOVE_TOAST',
       toastId,
@@ -56,7 +58,10 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout);
 };
 
+// FIXME: see if you can gt around with this error
+// eslint-disable-next-line consistent-return
 export const reducer = (state: State, action: Action): State => {
+  // eslint-disable-next-line default-case
   switch (action.type) {
     case 'ADD_TOAST':
       return {
@@ -66,8 +71,8 @@ export const reducer = (state: State, action: Action): State => {
     case 'UPDATE_TOAST':
       return {
         ...state,
-        toasts: state.toasts.map((toast) =>
-          toast.id ? { ...toast, ...action.toast } : toast
+        toasts: state.toasts.map((update_toast) =>
+          update_toast.id ? { ...update_toast, ...action.toast } : update_toast
         ),
       };
     case 'DISMISS_TOAST': {
@@ -77,19 +82,19 @@ export const reducer = (state: State, action: Action): State => {
       if (toastId) {
         addToRemoveQueue(toastId);
       } else {
-        state.toasts.forEach((toast) => {
-          addToRemoveQueue(toast.id);
+        state.toasts.forEach((dismiss_toast) => {
+          addToRemoveQueue(dismiss_toast.id);
         });
       }
       return {
         ...state,
-        toasts: state.toasts.map((toast) =>
-          toast.id === toastId || toastId === undefined
+        toasts: state.toasts.map((default_toast) =>
+          default_toast.id === toastId || toastId === undefined
             ? {
-                ...toast,
+                ...default_toast,
                 open: false,
               }
-            : toast
+            : default_toast
         ),
       };
     }
@@ -99,7 +104,9 @@ export const reducer = (state: State, action: Action): State => {
       }
       return {
         ...state,
-        toasts: state.toasts.filter((toast) => toast.id !== action.toastId),
+        toasts: state.toasts.filter(
+          (remove_toast) => remove_toast.id !== action.toastId
+        ),
       };
     }
   }
@@ -120,8 +127,8 @@ type Toast = Omit<ToasterToast, 'id'>;
 
 function toast({ ...props }: Toast) {
   const id = genId();
-  const update = (props: ToasterToast) =>
-    dispatch({ type: 'UPDATE_TOAST', toast: { ...props, id } });
+  const update = (args: ToasterToast) =>
+    dispatch({ type: 'UPDATE_TOAST', toast: { ...args, id } });
 
   const dismiss = () => dispatch({ type: 'DISMISS_TOAST', toastId: id });
 

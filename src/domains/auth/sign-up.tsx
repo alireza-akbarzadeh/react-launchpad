@@ -65,7 +65,6 @@ export function SignUp() {
         </pre>
       ),
     });
-    console.log(values);
   }
   const isShowPass = form.watch('isShowPass');
   const isShowConfrimPass = form.watch('isShowConfrimPass');
@@ -114,7 +113,7 @@ export function SignUp() {
                     onIconCLick: () => {
                       form.setValue(
                         'isShowPass',
-                        !form.getValues('isShowPass'),
+                        !form.getValues('isShowPass')
                       );
                     },
                   },
@@ -137,7 +136,7 @@ export function SignUp() {
                     onIconCLick: () => {
                       form.setValue(
                         'isShowConfrimPass',
-                        !form.getValues('isShowConfrimPass'),
+                        !form.getValues('isShowConfrimPass')
                       );
                     },
                   },

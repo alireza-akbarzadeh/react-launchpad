@@ -1,4 +1,4 @@
-// eslint-disable-next-line react/no-unknown-property
+// eslint-disable react/no-unknown-property
 
 import { FC } from 'react';
 import { Fragment } from 'react/jsx-runtime';
@@ -25,3 +25,8 @@ export function List<T>(props: IPersonList<T>) {
     </>
   );
 }
+
+List.defaultProps = {
+  itemComponents: {},
+  renderList: {},
+};

@@ -24,7 +24,7 @@ export function Portal(props: PropsWithChildren<IPortalProps>) {
         root.parentNode.removeChild(root);
       }
     };
-  }, []);
+  }, [id, elements]);
 
   if (!modalRoot) {
     return null; // Render nothing until modalRoot is initialized
@@ -32,3 +32,8 @@ export function Portal(props: PropsWithChildren<IPortalProps>) {
 
   return createPortal(<div>{children}</div>, modalRoot);
 }
+
+Portal.defaultProps = {
+  id: undefined,
+  elements: {},
+};

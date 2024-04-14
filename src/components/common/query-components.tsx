@@ -61,3 +61,10 @@ export function QueryComponents<
   if (query.error && showError) return <Code value={query.error} />;
   if (query.data) return onSuccess?.(query.data, query);
 }
+
+QueryComponents.defaultProps = {
+  onSuccess: {},
+  onError: {},
+  showError: false,
+  queryClient: {},
+};

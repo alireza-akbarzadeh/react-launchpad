@@ -1,4 +1,4 @@
-import { Decorator, Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Form } from 'components/ui/form/form';
 import { useForm } from 'react-hook-form';
 import { InputController } from '../input-controller';

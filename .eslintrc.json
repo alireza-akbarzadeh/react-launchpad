@@ -79,5 +79,5 @@
       }
     ]
   },
-  "ignorePatterns": ["vitest.config.ts", "tests","tailwind.config.ts"]
+  "ignorePatterns": ["vitest.config.ts", "tests","tailwind.config.ts","reset.d.ts"]
 }

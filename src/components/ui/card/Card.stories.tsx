@@ -58,7 +58,7 @@ export const Default: Story = {
             </div>
           </div>
           <div>
-            {notifications.map((notification, index) => (
+            {notifications.map((notification) => (
               <div
                 key={notification.description}
                 className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"

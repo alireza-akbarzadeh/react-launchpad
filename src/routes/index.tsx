@@ -10,7 +10,6 @@ const StoreView = lazy(() => import('views/store.view'));
 const VisionView = lazy(() => import('views/vision.view'));
 const WatchView = lazy(() => import('views/watch.view'));
 const HomeView = lazy(() => import('views/home.view'));
-const PatternsView = lazy(() => import('views/patterns.view'));
 const ServiesView = lazy(() => import('views/services.view'));
 
 export const router = createBrowserRouter([
@@ -60,12 +59,12 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <DashboardLayout />,
-    errorElement: <ErrorBoundray/>,
+    errorElement: <ErrorBoundray />,
     children: [
       {
         index: true,
         path: 'patterns',
-        element: <PatternsView />,
+        element: <div>dashboard</div>,
       },
     ],
   },

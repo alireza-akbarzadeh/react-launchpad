@@ -42,6 +42,7 @@ export interface InputProps
   label?: string | React.ReactNode;
   labelClassName?: string;
   labelStyles?: React.CSSProperties;
+  testId?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -55,6 +56,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       labelClassName,
       labelStyles,
+      testId,
       ...props
     },
     ref
@@ -73,6 +75,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <input
           type={type}
+          data-testid={testId}
           className={cn(inputVariants({ className, fullWidth, variant }))}
           ref={ref}
           {...props}
@@ -80,6 +83,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {icon && (
           <Button
             onClick={onIconCLick}
+            asChild
+            variant="ghost"
             className={cn(
               'ml-2 absolute  top-[50%] transform -translate-y-1/2 -translate-x-1/2',
               {
@@ -88,7 +93,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               }
             )}
           >
-            <Icon name={name as keyof typeof icons} {...restIconProps} />
+            <Icon
+              sizes="sm"
+              name={name as keyof typeof icons}
+              {...restIconProps}
+            />
           </Button>
         )}
       </div>
@@ -103,5 +112,6 @@ Input.defaultProps = {
   labelClassName: '',
   labelStyles: {},
   icon: undefined,
+  testId: undefined,
 };
 export { Input };

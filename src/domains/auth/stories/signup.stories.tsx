@@ -12,33 +12,45 @@ const meta: Meta<typeof SignUp> = {
 export default meta;
 type Story = StoryObj<typeof SignUp>;
 
-export const EmptyForm: Story = {};
+/* @see https://storybook.js.org/docs/writing-stories/play-function */
 
-/*
- * See https://storybook.js.org/docs/writing-stories/play-function#working-with-the-canvas
- * to learn more about using the canvasElement to query the DOM
- */
-/*
- * see docs for
- * https://storybook.js.org/docs/writing-tests/interaction-testing
- */
-export const FilledForm: Story = {
+export const SignForm: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // 👇 Simulate interactions with the component
     await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
+    await userEvent.type(canvas.getByTestId('username'), 'alireza');
 
     await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
-
-    // See https://storybook.js.org/docs/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
+    await userEvent.type(
+      canvas.getByTestId('confirmPassword'),
+      'a-random-password'
+    );
+    await userEvent.click(canvas.getByRole('checkbox'));
     await userEvent.click(canvas.getByRole('button'));
 
     // 👇 Assert DOM structure
     await expect(
-      canvas.getByText(
-        'Everything is perfect. Your account is ready and we should probably get you started!'
-      )
+      canvas.getByText(/Everything is perfect/i)
     ).toBeInTheDocument();
+  },
+};
+
+export const ErrorForm: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
+    await userEvent.type(canvas.getByTestId('username'), 'alireza');
+
+    await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
+    await userEvent.type(
+      canvas.getByTestId('confirmPassword'),
+      'a-random-password sad'
+    );
+    await userEvent.click(canvas.getByRole('checkbox'));
+
+    // 👇 Assert DOM structure
+    await expect(canvas.getByRole('button')).toBeDisabled();
   },
 };

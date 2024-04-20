@@ -81,6 +81,7 @@ export function SignUp() {
               <InputController
                 label="Username"
                 description="you should enter your username here"
+                inputProps={{ testId: 'username' }}
                 inputControll={{
                   control: form.control,
                   name: 'username',
@@ -90,6 +91,7 @@ export function SignUp() {
               <InputController
                 label="Email"
                 description="you should enter your email here"
+                inputProps={{ testId: 'email' }}
                 inputControll={{
                   control: form.control,
                   name: 'email',
@@ -105,6 +107,7 @@ export function SignUp() {
                 }}
                 inputProps={{
                   type: isShowPass ? 'type' : 'password',
+                  testId: 'password',
                   placeholder: 'Enter your password',
                   icon: {
                     name: isShowPass ? 'EyeOff' : 'Eye',
@@ -128,6 +131,7 @@ export function SignUp() {
                 }}
                 inputProps={{
                   type: isShowConfrimPass ? 'type' : 'password',
+                  testId: 'confirmPassword',
                   placeholder: 'Enter your Confirm password',
                   icon: {
                     name: isShowConfrimPass ? 'EyeOff' : 'Eye',
@@ -150,9 +154,20 @@ export function SignUp() {
                   name: 'agreement',
                 }}
               />
-              <Button type="submit">Submit</Button>
+              <Button
+                disabled={!form.formState.isDirty || !form.formState.isValid}
+                type="submit"
+              >
+                Submit
+              </Button>
             </form>
           </Form>
+          {form.formState.isSubmitted ? (
+            <p data-testId="success" className="mt-2 text-green-600">
+              Everything is perfect. Your account is ready and we should
+              probably get you started!
+            </p>
+          ) : null}
         </CardContent>
       </Card>
     </div>

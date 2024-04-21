@@ -9,20 +9,21 @@
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended-type-checked"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
+    "tsconfigRootDir": "__dirname",
     "sourceType": "module",
-    "project": ["./tsconfig.json", "./tests"]
+    "project": true
   },
-  "plugins": ["react", "@typescript-eslint","jsx-a11y"],
+  "plugins": ["react", "@typescript-eslint", "jsx-a11y"],
   "rules": {
     "import/prefer-default-export": "off",
-    "react/prop-types":"off",
-    "import/no-extraneous-dependencies":"off",
-    "@typescript-eslint/no-explicit-any":"warn",
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/indent": "off",
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": 0,
@@ -109,6 +110,5 @@
     "jsx-a11y/role-supports-aria-props": "warn",
     "jsx-a11y/scope": "warn",
     "jsx-a11y/tabindex-no-positive": "warn"
-  },
-  "ignorePatterns": ["vitest.config.ts", "tests","tailwind.config.ts","reset.d.ts"]
+  }
 }

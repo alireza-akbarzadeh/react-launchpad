@@ -27,7 +27,7 @@ const iconVariants = cva('px-2', {
 
 export interface IconProps
   extends Omit<LucideProps, 'ref'>,
-  VariantProps<typeof iconVariants> {
+    VariantProps<typeof iconVariants> {
   name: keyof typeof icons;
 }
 
@@ -40,12 +40,12 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(
         ref={ref}
         className={cn(
           'rounded-full size-5',
-          iconVariants({ sizes, colors, className }),
+          iconVariants({ sizes, colors, className })
         )}
         {...props}
       />
     );
-  },
+  }
 );
 
 Icon.displayName = 'Icon';

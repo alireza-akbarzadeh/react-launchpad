@@ -1,1 +1,6 @@
 node_modules
+
+vitest.config.ts
+tests
+tailwind.config.ts
+reset.d.ts

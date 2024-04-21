@@ -23,9 +23,10 @@
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "vite.config.ts"],
+  "include": ["src", "tests", "src/environment.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+

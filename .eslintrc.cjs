@@ -11,6 +11,7 @@ module.exports = {
     'airbnb/hooks',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,8 +19,11 @@ module.exports = {
     sourceType: 'module',
     project: true,
   },
-  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y', '@tanstack/query'],
   rules: {
+    '@tanstack/query/exhaustive-deps': 'error',
+    '@tanstack/query/no-rest-destructuring': 'warn',
+    '@tanstack/query/stable-query-client': 'error',
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'import/no-extraneous-dependencies': 'off',

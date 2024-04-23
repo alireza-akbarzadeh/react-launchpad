@@ -70,7 +70,7 @@ Feel free to remove what is unused for you and add a new package of your choice.
 
 ### Testing app
 
-Mocking test and fakerjs and msw.
+Mocking api for  test perposes with fakerjs and msw.
 
 Run a test like a pro with and vitest ui and react testing library.
 

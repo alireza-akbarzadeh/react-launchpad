@@ -1,7 +1,3 @@
----
-title: React Launchpad
----
-
 # React Launchpad
 
 React Launchpad is a modern React project starter setup aimed at simplifying the initial setup for React projects. It provides a streamlined starting point with pre-configured tools and dependencies to kickstart your development process.

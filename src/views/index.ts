@@ -1,10 +1,5 @@
 export { default as HomeView } from './home.view';
-export { default as StoreView } from './store.view';
-export { default as IphoneView } from './iphone.view';
-export { default as ServiesView } from './services.view';
-export { default as MacView } from './mac.view';
-export { default as VisionView } from './vision.view';
-export { default as WatchView } from './watch.view';
-export { default as AirPodsView } from './airpods.view';
-export { default as IpadView } from './ipad.view';
-export { default as PatternView } from './patterns.view';
+export { default as IphoneView } from './faq.view';
+export { default as AboutView } from './about.view';
+export { default as IpadView } from './contact.view';
+export { default as ServicesView } from './services.view';

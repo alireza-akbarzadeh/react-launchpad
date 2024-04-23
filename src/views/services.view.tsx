@@ -1,5 +1,5 @@
-function servicesView() {
-  return <div>servicesView</div>;
+function ServicesView() {
+  return <div>ServicesView</div>;
 }
 
-export default servicesView;
+export default ServicesView;

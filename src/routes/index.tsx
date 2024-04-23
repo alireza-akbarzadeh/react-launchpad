@@ -2,13 +2,10 @@ import { DashboardLayout, ErrorBoundray, RootLayout } from 'containers';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-const IphoneView = lazy(() => import('views/iphone.view'));
-const MacView = lazy(() => import('views/mac.view'));
-const IpadView = lazy(() => import('views/ipad.view'));
-const AirPodsView = lazy(() => import('views/airpods.view'));
-const StoreView = lazy(() => import('views/store.view'));
-const VisionView = lazy(() => import('views/vision.view'));
-const WatchView = lazy(() => import('views/watch.view'));
+const FaqView = lazy(() => import('views/faq.view'));
+const ContactView = lazy(() => import('views/contact.view'));
+const AboutView = lazy(() => import('views/about.view'));
+const ServicesView = lazy(() => import('views/services.view'));
 const HomeView = lazy(() => import('views/home.view'));
 const ServiesView = lazy(() => import('views/services.view'));
 
@@ -23,36 +20,24 @@ export const router = createBrowserRouter([
         element: <HomeView />,
       },
       {
-        path: 'iphone',
-        element: <IphoneView />,
+        path: 'faq',
+        element: <FaqView />,
       },
       {
-        path: 'mac',
-        element: <MacView />,
+        path: 'services',
+        element: <ServicesView />,
       },
       {
-        path: 'ipad',
-        element: <IpadView />,
+        path: 'contact',
+        element: <ContactView />,
       },
       {
-        path: 'airpods',
-        element: <AirPodsView />,
+        path: 'about',
+        element: <AboutView />,
       },
       {
         path: 'services',
         element: <ServiesView />,
-      },
-      {
-        path: 'store',
-        element: <StoreView />,
-      },
-      {
-        path: 'vision',
-        element: <VisionView />,
-      },
-      {
-        path: 'watch',
-        element: <WatchView />,
       },
     ],
   },

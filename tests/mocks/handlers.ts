@@ -1,20 +1,20 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse } from 'msw';
 
 export const handlers = [
-  http.get("categories", () => {
-    return HttpResponse.json([
+  http.get('categories', () =>
+    HttpResponse.json([
       {
         id: 1,
-        name: "Electronics",
+        name: 'Electronics',
       },
       {
         id: 2,
-        name: "Beauty",
+        name: 'Beauty',
       },
       {
         id: 3,
-        name: "Gardening",
+        name: 'Gardening',
       },
-    ]);
-  }),
+    ])
+  ),
 ];

@@ -1,6 +1,10 @@
 ![image](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/d7d3ad80-18c9-4c57-b9de-6a331321cc9f)
 
-# React Launchpad
+
+[![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![Discord](https://img.shields.io/discord/692816967895220344?logo=discord&label=Discord&color=5865F2)](https://discord.gg/PRyKn3Vbay)
+
+# React Launchpad open-source codebase
 
 React Launchpad is a modern React project starter setup aimed at simplifying the initial setup for React projects. It provides a streamlined starting point with pre-configured tools and dependencies to kickstart your development process.
 
@@ -99,3 +103,28 @@ The following scripts are available in the `package.json`:
 - `test`: Runs unit and integration tests
 - `test:ui`: Runs end-to-end tests in headless mode
 - `coverage`: checking for how many of your code is tested
+
+
+
+### Contributing
+
+The devtools community is possible thanks to thousands of kind volunteers like you. We welcome all contributions to the community and are excited to welcome you aboard.
+
+> #### [Please follow these steps to contribute](https://react-launchpad.vercel.app/contribute).
+
+Recent Contributions:
+
+![Alt](https://repobeats.axiom.co/api/embed/89be0a1a1c8f641c54f9234a7423e7755352c746.svg 'Repobeats analytics image')
+
+### Platform, Build, and Deployment Status
+
+The general platform status for all our applications is available at [`status.freecodecamp.org`](https://react-launchpad.vercel.app). The build and deployment status for the code is available in [our DevOps Guide](https://react-launchpad.vercel.app/devops).
+
+### License
+
+Copyright © 2024 https://react-launchpad.vercel.app/
+
+The content of this repository is bound by the following licenses:
+
+- The computer software is licensed under the [BSD-3-Clause](LICENSE.md) license.
+- The learning resources in the [`/curriculum`](/curriculum) directory including their subdirectories thereon are copyright © 2024 freeCodeCamp.org

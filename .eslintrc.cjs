@@ -115,7 +115,13 @@ module.exports = {
     'jsx-a11y/scope': 'warn',
     'jsx-a11y/tabindex-no-positive': 'warn',
   },
-  ignorePatterns: ['vitest.config.ts', 'tailwind.config.ts', 'reset.d.ts'],
+  ignorePatterns: [
+    'node_modules',
+    'vitest.config.ts',
+    'vite.config.ts',
+    'tailwind.config.ts',
+    'reset.d.ts',
+  ],
   overrides: [
     {
       files: ['**/*.test.ts', '**/*.test.tsx'],

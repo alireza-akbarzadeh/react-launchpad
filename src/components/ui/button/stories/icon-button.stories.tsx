@@ -2,24 +2,23 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { IconButton, IconButtonProps } from 'components/ui/button/icon-button';
 import { SIZES, VARIANT } from 'constant/themes';
 
-
 const meta: Meta<IconButtonProps> = {
   component: IconButton,
   title: 'Buttons/IconButton',
   tags: ['autodocs'],
   args: {
     iconName: 'User',
-    iconSize:'lg',
-    sizes:'lg',
+    iconSize: 'lg',
+    sizes: 'lg',
   },
   argTypes: {
     onClick: { action: 'clicked' },
     disabled: { control: 'boolean' },
     variant: {
-      options:Object.keys(VARIANT),
+      options: Object.keys(VARIANT),
       control: { type: 'select' },
     },
-    roundedFull:{
+    roundedFull: {
       control: { type: 'boolean' },
     },
     size: {
@@ -38,18 +37,16 @@ const meta: Meta<IconButtonProps> = {
 
 type Story = StoryObj<typeof IconButton>;
 
-
-
 export const Outline: Story = {
   args: {
-    variant:'outline',
-    iconClassName:'text-black',
+    variant: 'outline',
+    iconClassName: 'text-black',
   },
 };
 export const Ghost: Story = {
   args: {
     variant: 'ghost',
-    roundedFull:true,
+    roundedFull: true,
   },
 };
 

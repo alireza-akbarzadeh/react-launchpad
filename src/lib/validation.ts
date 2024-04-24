@@ -27,14 +27,14 @@ type PasswordValues = {
 type Valid<T> = Brand<T, 'Valid'>;
 
 function isValidPassword(
-  valuse: PasswordValues,
+  valuse: PasswordValues
 ): valuse is Valid<PasswordValues> {
   if (valuse.password !== valuse.confirmPassword) return false;
   return true;
 }
 
 function assertIsValidPassword(
-  values: PasswordValues,
+  values: PasswordValues
 ): asserts values is Valid<PasswordValues> {
   if (values.password !== values.confirmPassword) {
     throw new Error('Password is invalid');

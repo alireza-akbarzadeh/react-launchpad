@@ -4,19 +4,20 @@ import { cn } from 'lib/utils';
 import * as React from 'react';
 
 const labelVariants = cva(
-  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
 );
 
 // Define props interface for the Label component
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps
+  extends React.LabelHTMLAttributes<HTMLLabelElement> {
   asChild?: boolean; // Indicate if the label should be rendered as a child element
 }
 
 // ForwardRefExoticComponent allows the component to receive a ref
 const Label: React.ForwardRefExoticComponent<
-LabelProps &
-VariantProps<typeof labelVariants> &
-React.RefAttributes<HTMLLabelElement>
+  LabelProps &
+    VariantProps<typeof labelVariants> &
+    React.RefAttributes<HTMLLabelElement>
 > = React.forwardRef(({ className, asChild, htmlFor, ...props }, ref) => {
   const Comp = asChild ? Slot : 'label';
   const labelProps = htmlFor ? { htmlFor } : {};

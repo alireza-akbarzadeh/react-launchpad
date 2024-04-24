@@ -5,10 +5,14 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), sentryVitePlugin({
-    org: 'devtools-pk',
-    project: 'apple-beyound',
-  })],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    sentryVitePlugin({
+      org: 'devtools-pk',
+      project: 'apple-beyound',
+    }),
+  ],
 
   build: {
     sourcemap: true,

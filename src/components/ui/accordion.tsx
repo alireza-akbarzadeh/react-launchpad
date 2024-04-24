@@ -8,8 +8,8 @@ const Accordion = AccordionPrimitive.Root;
 
 type AccordionPrimitiveItem = typeof AccordionPrimitive.Item;
 const AccordionItem = React.forwardRef<
-React.ElementRef<AccordionPrimitiveItem>,
-React.ComponentPropsWithoutRef<AccordionPrimitiveItem>
+  React.ElementRef<AccordionPrimitiveItem>,
+  React.ComponentPropsWithoutRef<AccordionPrimitiveItem>
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     className={cn('border-b', className)}
@@ -23,15 +23,15 @@ AccordionItem.displayName = 'AccordionItem';
 type AccordionPrimitiverigger = typeof AccordionPrimitive.Trigger;
 
 const AccordionTrigger = React.forwardRef<
-React.ElementRef<AccordionPrimitiverigger>,
-React.ComponentPropsWithoutRef<AccordionPrimitiverigger>
+  React.ElementRef<AccordionPrimitiverigger>,
+  React.ComponentPropsWithoutRef<AccordionPrimitiverigger>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
         'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
-        className,
+        className
       )}
       {...props}
     >
@@ -46,8 +46,8 @@ AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 type AccordionContentPrimitive = typeof AccordionPrimitive.Content;
 
 const AccordionContent = React.forwardRef<
-React.ElementRef<AccordionContentPrimitive>,
-React.ComponentPropsWithoutRef<AccordionContentPrimitive>
+  React.ElementRef<AccordionContentPrimitive>,
+  React.ComponentPropsWithoutRef<AccordionContentPrimitive>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}

@@ -1,1 +1,2 @@
-export type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> & TOverridden;
+export type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> &
+  TOverridden;

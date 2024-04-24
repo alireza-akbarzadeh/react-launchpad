@@ -1,6 +1,4 @@
-
 ![image](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/d7d3ad80-18c9-4c57-b9de-6a331321cc9f)
-
 
 # React Launchpad
 
@@ -21,21 +19,21 @@ To get started with this app, follow these steps:
 
 1. Fork & clone the repository:
 
-    ```bash
-    git clone https://github.com/<your_username>/react-launchpad.git
-    ```
+   ```bash
+   git clone https://github.com/<your_username>/react-launchpad.git
+   ```
 
 2. Install the dependencies:
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 3. Run the development server:
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -70,7 +68,7 @@ Feel free to remove what is unused for you and add a new package of your choice.
 
 ### Testing app
 
-Mocking api for  test perposes with fakerjs and msw.
+Mocking api for test perposes with fakerjs and msw.
 
 Run a test like a pro with and vitest ui and react testing library.
 
@@ -101,4 +99,3 @@ The following scripts are available in the `package.json`:
 - `test`: Runs unit and integration tests
 - `test:ui`: Runs end-to-end tests in headless mode
 - `coverage`: checking for how many of your code is tested
-

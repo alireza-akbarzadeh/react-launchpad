@@ -11,24 +11,39 @@ on:
 
 jobs:
   check:
-    name: Check
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
-      - name: "use node ${{ env.node_version }}"
+
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ env.node_version }}"
+          node-version: ${{ env.node_version }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Lint check
-        run: yarn lint
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
       - name: Format check
-        run: yarn prettier
-      - name: Unit & Integration tests
-        run: yarn test
-      - name: Smoke & Acceptance tests
+        run: pnpm run format
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build storybook
+        run: pnpm run build-storybook
+
+      - name: Smoke tests
+        run: |
+          npx http-server storybook-static --port 6006 --silent
+          npx wait-on tcp:127.0.0.1:6006
+          pnpm run test-storybook
         run: |
           yarn build-storybook --quiet
           yarn playwright install

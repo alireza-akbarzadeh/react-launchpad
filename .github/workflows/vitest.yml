@@ -1,4 +1,4 @@
-name: Vitest Tests
+name: Vitest Tests 
 
 on:
   push:
@@ -18,6 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
 
       - name: "use node ${{ env.node_version }}"
@@ -35,7 +38,7 @@ jobs:
         run: pnpm exec vitest
 
       - name: Upload Vitest Report
-        if: always()
+        if: always() 
         uses: actions/upload-artifact@v3
         with:
           name: vitest-report

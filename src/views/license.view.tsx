@@ -1,7 +1,5 @@
 import { Development } from 'components';
 
-function FaqView() {
+export default function Licenseview(): JSX.Element {
   return <Development />;
 }
-
-export default FaqView;

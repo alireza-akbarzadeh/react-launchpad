@@ -8,6 +8,9 @@ const AboutView = lazy(() => import('views/about.view'));
 const ServicesView = lazy(() => import('views/services.view'));
 const HomeView = lazy(() => import('views/home.view'));
 const ServiesView = lazy(() => import('views/services.view'));
+const LicenseView = lazy(() => import('views/license.view'));
+const ContributeView = lazy(() => import('views/contribute.view'));
+const StatusView = lazy(() => import('views/status.view'));
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ export const router = createBrowserRouter([
       {
         path: 'faq',
         element: <FaqView />,
+      },
+      {
+        path: 'contribute',
+        element: <ContributeView />,
+      },
+      {
+        path: 'status',
+        element: <StatusView />,
+      },
+      {
+        path: 'license',
+        element: <LicenseView />,
       },
       {
         path: 'services',

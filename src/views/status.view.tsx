@@ -1,7 +1,7 @@
 import { Development } from 'components';
 
-function FaqView() {
+function StatusView() {
   return <Development />;
 }
 
-export default FaqView;
+export default StatusView;

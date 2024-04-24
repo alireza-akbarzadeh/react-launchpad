@@ -118,7 +118,7 @@ Recent Contributions:
 
 ### Platform, Build, and Deployment Status
 
-The general platform status for all our applications is available at [`status.freecodecamp.org`](https://react-launchpad.vercel.app). The build and deployment status for the code is available in [our DevOps Guide](https://react-launchpad.vercel.app/devops).
+The general platform status for all our applications is available at [`https://react-launchpad.vercel.app/status`](https://react-launchpad.vercel.app). The build and deployment status for the code is available in [our DevOps Guide](https://react-launchpad.vercel.app/devops).
 
 ### License
 

@@ -1,5 +1,7 @@
+import { Development } from 'components';
+
 function AboutView() {
-  return <div>AboutView</div>;
+  return <Development />;
 }
 
 export default AboutView;

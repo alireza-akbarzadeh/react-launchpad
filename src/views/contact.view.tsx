@@ -1,5 +1,7 @@
+import { Development } from 'components';
+
 function ContactView() {
-  return <div>ContactView</div>;
+  return <Development />;
 }
 
 export default ContactView;

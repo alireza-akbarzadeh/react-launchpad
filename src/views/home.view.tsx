@@ -1,7 +1,7 @@
-import { HomeDomains } from 'domains';
+import { Development } from 'components';
 
 function HomeView() {
-  return <HomeDomains />;
+  return <Development />;
 }
 
 export default HomeView;

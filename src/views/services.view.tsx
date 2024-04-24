@@ -1,5 +1,7 @@
+import { Development } from 'components';
+
 function ServicesView() {
-  return <div>ServicesView</div>;
+  return <Development />;
 }
 
 export default ServicesView;

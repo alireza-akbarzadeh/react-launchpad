@@ -1,4 +1,4 @@
-name: Check
+name: Check 
 
 on:
   push:
@@ -18,12 +18,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node_version }}
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+          
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          version: 7
-      
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+            
       - name: Install dependencies
         run: pnpm install
 
@@ -44,9 +47,6 @@ jobs:
           npx http-server storybook-static --port 6006 --silent
           npx wait-on tcp:127.0.0.1:6006
           pnpm run test-storybook
-        run: |
-          yarn build-storybook --quiet
-          yarn playwright install
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"
+
+
+

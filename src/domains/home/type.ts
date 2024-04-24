@@ -1,7 +1,4 @@
-import { TSizesList } from 'constant';
-import { MutableRefObject, SyntheticEvent } from 'react';
-import * as THREE from 'three';
-import { TModelViewState } from './container/model/model';
+import { SyntheticEvent } from 'react';
 
 type TVideoState = {
   isEnd: boolean;
@@ -34,14 +31,4 @@ type TReturnUseCarouselController = {
   ) => void;
 };
 
-export type TModelViewProps = {
-  index: any;
-  groupRef: MutableRefObject<THREE.Group<THREE.Object3DEventMap>>;
-  gsapType: 'view1' | 'view2';
-  controlRef: MutableRefObject<any>;
-  setRotaion: (value: number) => void;
-  item: TModelViewState;
-  size: TSizesList['value'];
-};
-
-export type { TProsessState, TVideoState, TReturnUseCarouselController };
+export type { TProsessState, TReturnUseCarouselController, TVideoState };

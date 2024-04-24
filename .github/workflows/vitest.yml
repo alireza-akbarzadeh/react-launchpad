@@ -26,6 +26,9 @@ jobs:
           cache: 'pnpm'
           always-auth: false
 
+      - name: Install PNPM
+        run: sudo npm install -g pnpm
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 

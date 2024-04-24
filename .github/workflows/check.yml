@@ -20,6 +20,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "${{ env.node_version }}"
+          registry-url: 'https://registry.npmjs.org/'
+          cache: 'pnpm'
+          always-auth: false
+      - name: Install PNPM
+        run: sudo npm install -g pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint check
@@ -30,7 +35,7 @@ jobs:
         run: pnpm test
       - name: Smoke & Acceptance tests
         run: |
-          pnpm  build-story --quiet
+          pnpm build-story --quiet
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"

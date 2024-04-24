@@ -1,0 +1,41 @@
+name: Vitest Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request: null
+  workflow_dispatch: null
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Set your Node.js version here
+          registry-url: 'https://registry.npmjs.org/'
+          cache: 'pnpm'
+          always-auth: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Vitest tests
+        run: pnpm exec vitest
+
+      - name: Upload Vitest Report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: vitest-report
+          path: vitest-report/
+          retention-days: 30

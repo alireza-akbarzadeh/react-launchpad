@@ -11,7 +11,6 @@ React Launchpad is a modern React project starter setup aimed at simplifying the
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-- [Technologies Used](#technologies-used)
 - [Development Tools](#development-tools)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -40,21 +39,6 @@ To get started with this app, follow these steps:
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Technologies Used
-
-Feel free to remove what is unused for you and add a new package of your choice. I tried my best to pick the latest and amazing technology currently existing in the React ecosystem.
-
-- **React** - v18.2.0
-- **React Router Dom** - v6.22.3
-- **React Hook Form** - v7.51.2
-- **Zustand** - v4.5.2
-- **React Query** - v5.28.4
-- **Axios** - v1.6.8
-- **Tailwind CSS** - v3.4.1
-- **Zod** - v3.22.4
-- **Date-fns** - v3.6.0
-- **Lucide React** - v0.358.0
 
 ## Development Tools
 

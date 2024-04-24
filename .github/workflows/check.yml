@@ -15,24 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
-      - name: "use node ${{ env.node_version }}"
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ env.node_version }}"
+          node-version: '14' # Set your Node.js version here
           registry-url: 'https://registry.npmjs.org/'
           cache: 'pnpm'
           always-auth: false
+
       - name: Install PNPM
         run: sudo npm install -g pnpm
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
       - name: Lint check
         run: pnpm lint
+
       - name: Format check
         run: pnpm prettier
+
       - name: Unit & Integration tests
         run: pnpm test
+
       - name: Smoke & Acceptance tests
         run: |
           pnpm build-story --quiet

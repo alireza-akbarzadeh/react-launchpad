@@ -114,7 +114,7 @@ The devtools community is possible thanks to thousands of kind volunteers like y
 
 Recent Contributions:
 
-![Alt](https://repobeats.axiom.co/api/embed/89be0a1a1c8f641c54f9234a7423e7755352c746.svg 'Repobeats analytics image')
+![Alt](https://repobeats.axiom.co/api/embed/1aef2bf4570efff1b67e8cd368d640180b823713.svg "Repobeats analytics image")
 
 ### Platform, Build, and Deployment Status
 

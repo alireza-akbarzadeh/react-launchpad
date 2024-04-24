@@ -1,20 +1,3 @@
-import { http, HttpResponse } from 'msw';
+import { db } from './db';
 
-export const handlers = [
-  http.get('categories', () =>
-    HttpResponse.json([
-      {
-        id: 1,
-        name: 'Electronics',
-      },
-      {
-        id: 2,
-        name: 'Beauty',
-      },
-      {
-        id: 3,
-        name: 'Gardening',
-      },
-    ])
-  ),
-];
+export const handlers = [...db.product.toHandlers('rest')];

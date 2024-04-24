@@ -1,6 +1,4 @@
-
-![OIG2 H7B7oyw XKsTlgK_HDjN (1)](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/24bacff3-1d6e-48fc-85ae-ad8eb21b6701)
-
+![OIG2 H7B7oyw XKsTlgK_HDjN (2)](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/1a5a95be-a826-4304-99ad-6ff9ec7a4de3)
 
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Discord](https://img.shields.io/discord/692816967895220344?logo=discord&label=Discord&color=5865F2)](https://discord.gg/9VYcxguT)

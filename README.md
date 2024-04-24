@@ -1,4 +1,5 @@
-![image](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/d7d3ad80-18c9-4c57-b9de-6a331321cc9f)
+
+![OIG2 H7B7oyw XKsTlgK_HDjN (1)](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/24bacff3-1d6e-48fc-85ae-ad8eb21b6701)
 
 
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)

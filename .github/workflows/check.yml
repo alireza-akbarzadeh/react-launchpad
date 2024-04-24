@@ -15,32 +15,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
+      - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
+      - name: "use node ${{ env.node_version }}"
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # Set your Node.js version here
-          registry-url: 'https://registry.npmjs.org/'
-          cache: 'pnpm'
-          always-auth: false
-
-      - name: Install PNPM
-        run: sudo npm install -g pnpm
-
+          node-version: "${{ env.node_version }}"
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
+        run: yarn install --frozen-lockfile
       - name: Lint check
-        run: pnpm lint
-
+        run: yarn lint
       - name: Format check
-        run: pnpm prettier
-
+        run: yarn prettier
       - name: Unit & Integration tests
-        run: pnpm test
-
+        run: yarn test
       - name: Smoke & Acceptance tests
         run: |
-          pnpm build-story --quiet
+          yarn build-storybook --quiet
+          yarn playwright install
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"

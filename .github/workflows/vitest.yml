@@ -18,16 +18,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
+
+      - name: "use node ${{ env.node_version }}"
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # Set your Node.js version here
+          node-version: "${{ env.node_version }}"
           registry-url: 'https://registry.npmjs.org/'
           cache: 'pnpm'
           always-auth: false
-
-      - name: Install PNPM
-        run: sudo npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -37,8 +36,8 @@ jobs:
 
       - name: Upload Vitest Report
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: vitest-report
           path: vitest-report/
-          retention-days
+          retention-days: 30

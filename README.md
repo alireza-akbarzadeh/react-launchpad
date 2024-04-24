@@ -22,7 +22,7 @@ To get started with this app, follow these steps:
 1. Fork & clone the repository:
 
     ```bash
-    git clone https://github.com/<your_username>/launchpad.git
+    git clone https://github.com/<your_username>/react-launchpad.git
     ```
 
 2. Install the dependencies:

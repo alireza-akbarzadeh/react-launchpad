@@ -1,30 +1,36 @@
-![OIG2 H7B7oyw XKsTlgK_HDjN (2)](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/1a5a95be-a826-4304-99ad-6ff9ec7a4de3)
+![Project Logo](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/1a5a95be-a826-4304-99ad-6ff9ec7a4de3)
 
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Discord](https://img.shields.io/discord/692816967895220344?logo=discord&label=Discord&color=5865F2)](https://discord.gg/9VYcxguT)
 
-
 <p align="center">
- # React Launchpad open-source codebase
+  <h1>React Launchpad open-source codebase</h1>
 </p>
 
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-- [Introduction](#Introduction)
+- [Introduction](#introduction)
 - [Development Tools](#development-tools)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Scripts Overview](#scripts-overview)
-
+- [Roadmap](#roadmap)
+  - [UI](#ui)
+  - [Hooks and Utilities](#hooks-and-utilities)
+  - [Code Quality](#code-quality)
+  - [Testing app](#testing-app)
+- [Contributing](#contributing)
+- [Platform, Build, and Deployment Status](#platform-build-and-deployment-status)
+- [License](#license)
 
 ## Introduction
 
 React Launchpad is a modern React project starter setup aimed at simplifying the initial setup for React projects. It provides a streamlined starting point with pre-configured tools and dependencies to kickstart your development process.
 
-
-
 ## Getting Started
+
+To get started with this app, follow these steps:
 
 To get started with this app, follow these steps:
 
@@ -52,32 +58,51 @@ To get started with this app, follow these steps:
 
 
 > [!NOTE]  
-> I use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package for update this project.
->
-> Use this command for update your project: `ncu -i --format group`
+> I use [Neode](https://github.com/adam-cowley/neode) for managing application data in this project. Ensure that
 
-> [!WARNING]  
-> You need update `.react-email` folder before use `pnpm run email`. Check the link [here](https://github.com/resend/react-email/issues/868#issuecomment-1828411325) if you have the error : `renderToReadableStream not found`
->
-> After upgrade Auth.js to v5: `NEXTAUTH_URL` has removed from `.env.example`.
 
-> [!CAUTION]
-> Errors while the build if you update `remark-gfm` package.
+## 📃 Scripts Overview
+
+The following scripts are available in the `package.json`:
+
+- `dev`: Starts the development server with colorized output
+- `build`: Builds the app for production
+- `start`: Starts the production server
+- `format`: Formats the code with Prettier
+- `lint`: Lints the code using ESLint
+- `lint:fix`: Automatically fixes linting errors
+- `prettier`: Checks the code for proper formatting
+- `prettier:fix`: Automatically fixes formatting issues
+- `story`: Starts the Storybook server
+- `build-story`: Builds the Storybook for deployment
+- `test`: Runs unit and integration tests
+- `test:ui`: Runs end-to-end tests in headless mode
+- `coverage`: checking for how many of your code is tested
 
 
 
 
 ## Roadmap
 
-- [x] ~Fix Vaul drawer for mobile sign in~
-- [x] ~Update OG image~
-- [x] ~Add Server Actions on billing form (stripe)~
-- [x] ~Add Server Actions on user name form~
-- [x] ~Upgrade Auth.js to v5~
-- [x] ~Change database platform for Neon (planetscale removes its free plan on April 2024)~
-- [x] ~Switch subscription plan (enable on stripe dashboard)~
-- [ ] Update documentation for installation & configuration (work on it)
-- [ ] Upgrade eslint to v9
+
+- [ ] **Update documentation for installation & configuration**: This is currently a work in progress. Enhancing documentation ensures smoother onboarding for new contributors and users. Focus on clarity, completeness, and providing examples where necessary.\
+
+- [ ] **Create a starter app  and  show how folder structure and explain how the project work**: This is currently a work in progress. 
+
+- [] **Enhance Testing Coverage**: Consider expanding test coverage, especially for critical functionalities. Incorporate unit tests, integration tests, and end-to-end tests to ensure robustness and reliability.
+
+- [] **Streamline Development Workflow**: Evaluate the existing development process and tooling. Identify areas where automation can be introduced to streamline repetitive tasks and improve developer productivity.
+
+- [] **Address Technical Debt**: Take time to address any accumulated technical debt. Refactor code, resolve code smells, and optimize performance to maintain codebase health and sustainability.
+
+- [] **Community Engagement**: Foster community engagement by encouraging contributions, providing clear contribution guidelines, and actively participating in relevant forums or communities related to your project.
+
+- [] **Accessibility and Internationalization**: Assess the accessibility and internationalization aspects of your project. Ensure that the application is accessible to users with disabilities and supports multiple languages for a broader user base.
+
+- [] **Performance Optimization**: Continuously monitor and optimize application performance. Implement techniques such as code splitting, lazy loading, and caching to enhance user experience and reduce load times.
+
+By following this roadmap and implementing the suggested improvements, you can enhance the overall quality, maintainability, and user satisfaction of your project.
+
 
 
 
@@ -110,6 +135,7 @@ To get started with this app, follow these steps:
 - [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
 
 
+
 ### Testing app
 
 Mocking api for test perposes with fakerjs and msw.
@@ -120,29 +146,12 @@ Run a test like a pro with and vitest ui and react testing library.
 
 Integrate type checking and eslint and commitlint and husky for caching errors in compile time.
 
+
 ## 🚀 Deployment
 
 Easily deploy your React.js app with [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=github&utm_campaign=next-enterprise) by clicking the button below:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/Blazity/next-enterprise)
-
-## 📃 Scripts Overview
-
-The following scripts are available in the `package.json`:
-
-- `dev`: Starts the development server with colorized output
-- `build`: Builds the app for production
-- `start`: Starts the production server
-- `format`: Formats the code with Prettier
-- `lint`: Lints the code using ESLint
-- `lint:fix`: Automatically fixes linting errors
-- `prettier`: Checks the code for proper formatting
-- `prettier:fix`: Automatically fixes formatting issues
-- `story`: Starts the Storybook server
-- `build-story`: Builds the Storybook for deployment
-- `test`: Runs unit and integration tests
-- `test:ui`: Runs end-to-end tests in headless mode
-- `coverage`: checking for how many of your code is tested
 
 
 

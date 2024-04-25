@@ -3,17 +3,26 @@
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Discord](https://img.shields.io/discord/692816967895220344?logo=discord&label=Discord&color=5865F2)](https://discord.gg/9VYcxguT)
 
-# React Launchpad open-source codebase
 
-React Launchpad is a modern React project starter setup aimed at simplifying the initial setup for React projects. It provides a streamlined starting point with pre-configured tools and dependencies to kickstart your development process.
+<p align="center">
+ # React Launchpad open-source codebase
+</p>
 
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [Introduction](#Introduction)
 - [Development Tools](#development-tools)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Scripts Overview](#scripts-overview)
+
+
+## Introduction
+
+React Launchpad is a modern React project starter setup aimed at simplifying the initial setup for React projects. It provides a streamlined starting point with pre-configured tools and dependencies to kickstart your development process.
+
+
 
 ## Getting Started
 
@@ -37,21 +46,69 @@ To get started with this app, follow these steps:
    pnpm dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:5173) with your browser to see the result.
 
-## Development Tools
 
-- **Vite** - v5.1.6
-- **TypeScript** - v5.2.2
-- **ESLint** - v8.57.0
-- **Prettier** - v3.2.5
-- **Husky** - v9.0.11
-- **Storybook** - v8.0.5
-- **Chromatic Storybook** - v1.2.25
-- **MSW** - v2.1.6
-- **Vitest** - v1.5.0
 
-## Testing
+
+> [!NOTE]  
+> I use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package for update this project.
+>
+> Use this command for update your project: `ncu -i --format group`
+
+> [!WARNING]  
+> You need update `.react-email` folder before use `pnpm run email`. Check the link [here](https://github.com/resend/react-email/issues/868#issuecomment-1828411325) if you have the error : `renderToReadableStream not found`
+>
+> After upgrade Auth.js to v5: `NEXTAUTH_URL` has removed from `.env.example`.
+
+> [!CAUTION]
+> Errors while the build if you update `remark-gfm` package.
+
+
+
+
+## Roadmap
+
+- [x] ~Fix Vaul drawer for mobile sign in~
+- [x] ~Update OG image~
+- [x] ~Add Server Actions on billing form (stripe)~
+- [x] ~Add Server Actions on user name form~
+- [x] ~Upgrade Auth.js to v5~
+- [x] ~Change database platform for Neon (planetscale removes its free plan on April 2024)~
+- [x] ~Switch subscription plan (enable on stripe dashboard)~
+- [ ] Update documentation for installation & configuration (work on it)
+- [ ] Upgrade eslint to v9
+
+
+
+### UI
+
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
+- [Shadcn/ui](https://ui.shadcn.com/) – Re-usable components built using Radix UI and Tailwind CSS
+- [Framer Motion](https://framer.com/motion) – Motion library for React to animate components with ease
+- [Lucide](https://lucide.dev/) – Beautifully simple, pixel-perfect icons
+- [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
+- [`ImageResponse`](https://nextjs.org/docs/app/api-reference/functions/image-response) – Generate dynamic Open Graph images at the edge
+
+
+
+### Hooks and Utilities
+
+- `useIntersectionObserver` – React hook to observe when an element enters or leaves the viewport
+- `useLocalStorage` – Persist data in the browser's local storage
+- `useScroll` – React hook to observe scroll position ([example](https://github.com/mickasmt/precedent/blob/main/components/layout/navbar.tsx#L12))
+- `nFormatter` – Format numbers with suffixes like `1.2k` or `1.2M`
+- `capitalize` – Capitalize the first letter of a string
+- `truncate` – Truncate a string to a specified length
+- [`use-debounce`](https://www.npmjs.com/package/use-debounce) – Debounce a function call / state update
+
+
+### Code Quality
+
+- [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
+- [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
+- [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+
 
 ### Testing app
 

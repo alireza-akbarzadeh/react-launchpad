@@ -1,5 +1,13 @@
 # License
 
+Copyright © 2024 https://react-launchpad.vercel.app/
+
+The content of this repository is bound by the following licenses:
+
+- The computer software is licensed under the [BSD-3-Clause](LICENSE.md) license.
+- The learning resources in the [`/curriculum`](/curriculum) directory including their subdirectories thereon are copyright © 2024 freeCodeCamp.org
+
+
 This project is licensed under the [MIT License](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba).
 
 ## MIT License

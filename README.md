@@ -169,11 +169,3 @@ Recent Contributions:
 
 The general platform status for all our applications is available at [`https://react-launchpad.vercel.app/status`](https://react-launchpad.vercel.app). The build and deployment status for the code is available in [our DevOps Guide](https://react-launchpad.vercel.app/devops).
 
-### License
-
-Copyright © 2024 https://react-launchpad.vercel.app/
-
-The content of this repository is bound by the following licenses:
-
-- The computer software is licensed under the [BSD-3-Clause](LICENSE.md) license.
-- The learning resources in the [`/curriculum`](/curriculum) directory including their subdirectories thereon are copyright © 2024 freeCodeCamp.org

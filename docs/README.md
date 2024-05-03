@@ -1,7 +1,7 @@
 ![Project Logo](https://github.com/alireza-akbarzadeh/react-launchpad/assets/82927248/1a5a95be-a826-4304-99ad-6ff9ec7a4de3)
 
 
-[![Discord](https://img.shields.io/discord/1232660478027759668)](https://discord.com/1232660478027759668)
+[![Discord](https://img.shields.io/discord/1232660478027759668)](https://discord.com/zSQGy8Aq)
 ![Liberapay Donations](https://img.shields.io/liberapay/gives/alireza-akbarzdeh.svg?logo=liberapay)
 ![Liberapay Goal](https://img.shields.io/liberapay/goal/alireza-akbarzdeh.svg?logo=liberapay)
 

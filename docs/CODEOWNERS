@@ -1,9 +1,9 @@
-# https://help.github.com/articles/about-codeowners/
+# https://github.dev/alireza-akbarzadeh/react-launchpad
 
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence, they will
 # be requested for review when someone opens a PR.
-*       @jessesquires
+*       @alierza-akbarzadeh
 
 # Order is important; the last matching pattern takes the most
 # precedence. When someone opens a PR that only modifies

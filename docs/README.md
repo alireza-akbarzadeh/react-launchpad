@@ -2,6 +2,10 @@
 
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Discord](https://img.shields.io/discord/692816967895220344?logo=discord&label=Discord&color=5865F2)](https://discord.gg/9VYcxguT)
+<img src="https://img.shields.io/liberapay/gives/alireza-akbarzdeh.svg?logo=liberapay">
+<img src="https://img.shields.io/liberapay/goal/alireza-akbarzdeh.svg?logo=liberapay">
+
+
 
 <p align="center">
   <h1>React Launchpad open-source codebase</h1>
